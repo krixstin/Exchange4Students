@@ -12,6 +12,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import{MatButtonModule} from '@angular/material/button'
+import {MatInputModule} from '@angular/material/input';
+import {MatTabsModule} from '@angular/material/tabs';
+import { MystoreComponent } from './mystore/mystore.component';
+import { BrowseComponent } from './browse/browse.component';
+import { from } from 'rxjs';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -29,19 +37,29 @@ const firebaseConfig = {
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MystoreComponent,
+    BrowseComponent,
+    
+
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    MatTabsModule,
+    MatInputModule,
+    MatButtonModule,
 
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
-    AngularFireStorageModule, // storage
+    AngularFireStorageModule, BrowserAnimationsModule, // storage
   ],
   providers: [], //register data provider
   bootstrap: [AppComponent] //by default, app component
 })
-export class AppModule { }
+export class AppModule {
+
+ }
+ 
