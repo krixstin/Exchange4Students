@@ -3,7 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase:{
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  apiKey: "AIzaSyASAE6eJMzQNBcZrTyDeBKRhkgbOYLJutw",
+  authDomain: "exchange-7feda.firebaseapp.com",
+  projectId: "exchange-7feda",
+  storageBucket: "exchange-7feda.appspot.com",
+  messagingSenderId: "672482746687",
+  appId: "1:672482746687:web:84b7cfb9abf19b6849b38a",
+  measurementId: "G-NCDDYWT22M"
+
+  }
 };
 
 /*
@@ -14,3 +25,5 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+// In other files, import the environment like so:

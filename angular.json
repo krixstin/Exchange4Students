@@ -120,6 +120,10 @@
               "devServerTarget": "exchange4students:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

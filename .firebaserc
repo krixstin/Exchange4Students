@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "exchange-7feda": {
+      "hosting": {
+        "exchange4students": [
+          "exchange-7feda"
+        ]
+      }
+    }
+  }
+}
