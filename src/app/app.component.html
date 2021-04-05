@@ -32,8 +32,8 @@
 <div class="content" role="main">
   <div class="navv">
     <!-- <a routerLink="/">Home</a> -->
-    <button mat-flat-button><a routerLink="/browse">BROWSE</a></button>&nbsp;
-    <button mat-flat-button><a routerLink="/mystore">MY STORE</a></button>
+    <button mat-stroked-button (click) ="router.navigate(['/browse']);">BROWSE</button>&nbsp;
+    <button mat-stroked-button (click) ="router.navigate(['/mystore']);">MY STORE</button>
 </div>
 
 

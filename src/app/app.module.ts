@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Router } from '@angular/router';
 
 import{MatButtonModule} from '@angular/material/button'
 import {MatInputModule} from '@angular/material/input';
@@ -62,6 +63,12 @@ const firebaseConfig = {
   bootstrap: [AppComponent] //by default, app component
 })
 export class AppModule {
-
+  constructor(private router:Router){
+  }
+  
+  goToPage(pageName:string){
+    this.router.navigate([`${pageName}`]);
+  }
+  
  }
  
