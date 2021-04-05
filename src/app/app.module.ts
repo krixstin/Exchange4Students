@@ -20,6 +20,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { MystoreComponent } from './mystore/mystore.component';
 import { BrowseComponent } from './browse/browse.component';
 import { from } from 'rxjs';
+import { AdditemComponent } from './mystore/additem/additem.component';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -40,6 +41,7 @@ const firebaseConfig = {
     RegisterComponent,
     MystoreComponent,
     BrowseComponent,
+    AdditemComponent,
     
 
   ],
