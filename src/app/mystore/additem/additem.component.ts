@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-additem',
@@ -7,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdditemComponent implements OnInit {
 
-  constructor() { }
-
+  
+  
   ngOnInit(): void {
   }
 

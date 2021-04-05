@@ -13,7 +13,6 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Router } from '@angular/router';
 
 import{MatButtonModule} from '@angular/material/button'
 import {MatInputModule} from '@angular/material/input';
@@ -63,12 +62,7 @@ const firebaseConfig = {
   bootstrap: [AppComponent] //by default, app component
 })
 export class AppModule {
-  constructor(private router:Router){
-  }
   
-  goToPage(pageName:string){
-    this.router.navigate([`${pageName}`]);
-  }
   
  }
  

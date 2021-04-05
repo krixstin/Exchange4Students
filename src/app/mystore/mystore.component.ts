@@ -7,8 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./mystore.component.css']
 })
 export class MystoreComponent implements OnInit {
-
-  
+  constructor(public router: Router){
+  }
   ngOnInit(): void {
   }
 
