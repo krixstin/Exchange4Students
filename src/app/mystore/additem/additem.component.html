@@ -3,59 +3,72 @@
 <br>
 <br>
 
-<div class="form">
+<form [formGroup]="ourForm" (onSubmit)="submitData(ourForm.value)">
     <p>this is for book categorythis is for book categorythis is for book categorythis is for</p>
     
     <div class="books-inputs">
         <h1>Tell us about your book!</h1>
         <div class="input">
-            <label for="book-title">Book Title</label>&nbsp;
-            <input type="text" id='book-title'>
+            <label for="booktitle">Book Title</label>&nbsp;
+            <input type="text" id='booktitle' formControlName="booktitle">
+            <!-- <div *ngIf="ourForm.get('booktitle') && ourForm.get('booktitle')">
+                <span class="helper-text">The book title is required</span>
+            </div>
+            <div *ngIf="ourForm.get('booktitle') && ourForm.get('booktitle')">
+                <span class="helper-text">The book title is invalid</span>
+            </div> -->
         </div>
 
         <div class="input">
             <label for="description">Description</label>&nbsp;
-            <textarea type="text" id='description'></textarea>
+            <textarea type="text" id='description' formControlName="description"></textarea>
+            
         </div>
 
         <div class="input">
             <label for="edition">Edition</label>&nbsp;
-            <input type="number" id='edition'>
+            <input type="number" id='edition' formControlName="edition">
         </div>
 
         <div class="input">
-            <label for="course">Course Number</label>&nbsp;
-            <input type="text" id='edition'>
+            <label for="course">Course</label>&nbsp;
+            <input type="text" id='edition' formControlName="course">
         </div>
 
         <div class="input">
             <label for="price">Price  $</label>&nbsp;
-            <input type="number" id='price'>
+            <input type="number" id='price' formControlName="price">
         </div>
-
+    </div>
     <div class="general-inputs">
         <br>
         <h1>Tell us little more</h1>
         <div class="input">
             <label for="book-title">Seller ID</label>&nbsp;
-            <input type="text" id='seller-id'>
+            <input type="text" id='seller-id' formControlName="sellerid">
         </div>
 
         <div class="input">
             <label for="category" >Item Category</label>&nbsp;
-            <input readonly type="text" id='category' value="Books" placeholder="books">
+            <input readonly type="text" id='category' value="Books" placeholder="books"
+            formControlName="category">
         </div>
 
         <div class="input">
             <label for="picture">Picture</label>&nbsp;
-            <input type="file" id='picture'>
+            <input type="file" id='picture' >
         </div>   
 
         <div class="input">
-            <label for="shipping">Shipping Allowed</label>&nbsp;
-            <input type="number" id='shipping' maxlength="1">&nbsp; Enter 1 for Allowed, 2 for Not Allowed
+            <label for="shipping">Shipping</label>&nbsp;
+            <input type="number" id='shipping' maxlength="1" formControlName="shipping">&nbsp; <h4>Enter 1 for Allowed, 2 for Not Allowed</h4>
         </div>   
     </div>
     
-    <input type="submit" value="Submit">
-</div>
+    <input type="submit" value="Submit" [disabled]="ourForm.invalid">
+</form>
+
+<script>
+    console.log("dddd");
+    console.log(ourForm.get('booktitle'));
+</script>

@@ -7,7 +7,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
@@ -74,6 +74,7 @@ const firebaseConfig = {
     AngularFireAuthModule, // auth
     AngularFireStorageModule, BrowserAnimationsModule, // storage
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [], //register data provider
   bootstrap: [AppComponent] //by default, app component
