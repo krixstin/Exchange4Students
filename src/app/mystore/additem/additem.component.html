@@ -1,26 +1,61 @@
 
 <!-- tab for each category -->
+<br>
+<br>
 
-<div class="top-section">
-
-
-</div>
-
-<div class="row">
-    <div class="col m3"></div>
-    <div class="col m6">
-        <div class="card">
-            <div class="card-content">
-                <div class="card-title">
-                    <h1>Add Item to Sell</h1>
-                    <p>this is for book category</p>
-                    <span class="red-text">
-                        required *
-                    </span>
-                </div>
-
-            </div>
+<div class="form">
+    <p>this is for book categorythis is for book categorythis is for book categorythis is for</p>
+    
+    <div class="books-inputs">
+        <h1>Tell us about your book!</h1>
+        <div class="input">
+            <label for="book-title">Book Title</label>&nbsp;
+            <input type="text" id='book-title'>
         </div>
+
+        <div class="input">
+            <label for="description">Description</label>&nbsp;
+            <textarea type="text" id='description'></textarea>
+        </div>
+
+        <div class="input">
+            <label for="edition">Edition</label>&nbsp;
+            <input type="number" id='edition'>
+        </div>
+
+        <div class="input">
+            <label for="course">Course Number</label>&nbsp;
+            <input type="text" id='edition'>
+        </div>
+
+        <div class="input">
+            <label for="price">Price  $</label>&nbsp;
+            <input type="number" id='price'>
+        </div>
+
+    <div class="general-inputs">
+        <br>
+        <h1>Tell us little more</h1>
+        <div class="input">
+            <label for="book-title">Seller ID</label>&nbsp;
+            <input type="text" id='seller-id'>
+        </div>
+
+        <div class="input">
+            <label for="category" >Item Category</label>&nbsp;
+            <input readonly type="text" id='category' value="Books" placeholder="books">
+        </div>
+
+        <div class="input">
+            <label for="picture">Picture</label>&nbsp;
+            <input type="file" id='picture'>
+        </div>   
+
+        <div class="input">
+            <label for="shipping">Shipping Allowed</label>&nbsp;
+            <input type="number" id='shipping' maxlength="1">&nbsp; Enter 1 for Allowed, 2 for Not Allowed
+        </div>   
     </div>
-    <div class="col m3"></div>
+    
+    <input type="submit" value="Submit">
 </div>
