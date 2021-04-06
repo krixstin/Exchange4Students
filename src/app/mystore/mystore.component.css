@@ -1,4 +1,18 @@
-button{
-    background-color:rgb(182, 69, 69);
-    color: rgb(0, 0, 0);
+
+/* make tabs visible  */
+div#mat-tab-label-0-1 {
+    color: black;
 }
+div#mat-tab-label-0-0 {
+    color: black;
+}
+
+.mat-tab-lable{
+    color:rgb(90, 81, 81);
+    min-width: 25px !important;
+    padding: 5px;
+       background-color:transparent;
+        color:rgb(64, 209, 64);
+        font-weight: 700;
+  }
+

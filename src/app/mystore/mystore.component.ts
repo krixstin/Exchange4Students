@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mystore',
   templateUrl: './mystore.component.html',
-  styleUrls: ['./mystore.component.css']
+  styleUrls: ['./mystore.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class MystoreComponent implements OnInit {
   constructor(public router: Router){

@@ -21,6 +21,10 @@ import { MystoreComponent } from './mystore/mystore.component';
 import { BrowseComponent } from './browse/browse.component';
 import { from } from 'rxjs';
 import { AdditemComponent } from './mystore/additem/additem.component';
+import { ListitemComponent } from './mystore/listitem/listitem.component';
+import { environment } from 'src/environments/environment';
+
+
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -33,6 +37,7 @@ const firebaseConfig = {
   measurementId: "G-NCDDYWT22M"
 };
 
+
 @NgModule({
   declarations: [ //privately available to that module
     AppComponent,
@@ -42,6 +47,7 @@ const firebaseConfig = {
     MystoreComponent,
     BrowseComponent,
     AdditemComponent,
+    ListitemComponent,
     
 
   ],
@@ -53,10 +59,11 @@ const firebaseConfig = {
     MatButtonModule,
 
     AppRoutingModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule, BrowserAnimationsModule, // storage
+    ReactiveFormsModule,
   ],
   providers: [], //register data provider
   bootstrap: [AppComponent] //by default, app component
@@ -65,4 +72,5 @@ export class AppModule {
   
   
  }
+ 
  
