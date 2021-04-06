@@ -13,8 +13,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class AdditemComponent implements OnInit {
 
-  private submissionForm?: AngularFirestoreCollection<any>;
+  private submissionForm!: AngularFirestoreCollection<any[]>;
 
+  private testsubmit!: AngularFirestoreCollection<any[]>;
   constructor(private fb: FormBuilder, private firestore: AngularFirestore){
   }
 
@@ -22,15 +23,15 @@ export class AdditemComponent implements OnInit {
   ourForm: FormGroup = new FormGroup({
     //passing objects ( array of obtions)
     // [] for more than one Valliators
-    booktitle: new FormControl(''),
-    description :new FormControl(''),
-    edition: new FormControl(''),
-    course: new FormControl(''),
-    price: new FormControl(''),
-    sellerid: new FormControl(''),
-    category: new FormControl(''),
-    picture:new FormControl(''),
-    shipping: new FormControl(''),
+    booktitle: new FormControl('booktitle'),
+    description :new FormControl('description'),
+    edition: new FormControl('edition'),
+    course: new FormControl('course'),
+    price: new FormControl('price'),
+    sellerid: new FormControl('sellerid'),
+    category: new FormControl('category'),
+    // picture:new FormControl('picture'),
+    shipping: new FormControl('shipping'),
   });
   initializeForm() {
     this.ourForm.setValue({
@@ -40,25 +41,53 @@ export class AdditemComponent implements OnInit {
 }
   ngOnInit(): void{
     // this.initializeForm();
-    this.submissionForm=this.firestore.collection('submission');
+    this.submissionForm=this.firestore.collection('items');
 
     this.ourForm = this.fb.group({
       //passing objects ( array of obtions)
       // [] for more than one Valliators
-      booktitle: ['', Validators.required ],
-      description : ['', Validators.required ],
-      edition: ['', Validators.required],
-      course: ['', Validators.required],
-      price: ['', Validators.required],
-      sellerid: ['', Validators.required],
-      category: ['', Validators.required],
-      picture: ['', Validators.required],
-      shipping: ['', Validators.required]
+      // booktitle: ['', Validators.required ],
+      // description : ['', Validators.required ],
+      // edition: ['', Validators.required],
+      // course: ['', Validators.required],
+      // price: ['', Validators.required],
+      // sellerid: ['', Validators.required],
+      // category: ['', Validators.required],
+      // picture: ['', Validators.required],
+      // shipping: ['', Validators.required]
+
+      // booktitle: 'Algebra 1' ,
+      // description : 'Only used for a year' ,
+      // edition: 14,
+      // course: 'MA 132',
+      // price: 15,
+      // sellerid: 'spring567',
+      // category: 'boooks',
+      // // picture:'nah',
+      // shipping: 1
+
+      booktitle: ['' ],
+      description : ['' ],
+      edition: [''],
+      course: [''],
+      price: [''],
+      sellerid: [''],
+      category: [''],
+      picture:[''],
+      shipping: ['']
     });
   }
 
   submitData(value: any){
-      this.submissionForm?.add(value).then(res=>{
+    console.log(this.ourForm.value);
+    console.log();
+    console.log(this.submissionForm);
+    console.log();
+    console.log(this.submissionForm.add(value));
+    console.log();
+    // console.log(this.submissionForm.doc(value));
+    console.log(this.fb.control)
+      this.submissionForm.add(value).then(res=>{
         console.log('Item added');
       }).catch(err=> console.log(err)
       );

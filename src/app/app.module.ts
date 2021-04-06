@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -76,7 +76,7 @@ const firebaseConfig = {
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [], //register data provider
+  providers: [AngularFirestore], //register data provider
   bootstrap: [AppComponent] //by default, app component
 })
 export class AppModule {

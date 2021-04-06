@@ -3,7 +3,7 @@
 <br>
 <br>
 
-<form [formGroup]="ourForm" (onSubmit)="submitData(ourForm.value)">
+<form [formGroup]="ourForm" >
     <p>this is for book categorythis is for book categorythis is for book categorythis is for</p>
     
     <div class="books-inputs">
@@ -65,10 +65,6 @@
         </div>   
     </div>
     
-    <input type="submit" value="Submit" [disabled]="ourForm.invalid">
+    <input type="submit" value="Submit"  (click)="submitData(ourForm.value)">
+    <!-- [disabled] -->
 </form>
-
-<script>
-    console.log("dddd");
-    console.log(ourForm.get('booktitle'));
-</script>
