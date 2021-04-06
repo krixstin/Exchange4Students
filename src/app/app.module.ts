@@ -23,6 +23,11 @@ import { from } from 'rxjs';
 import { AdditemComponent } from './mystore/additem/additem.component';
 import { ListitemComponent } from './mystore/listitem/listitem.component';
 import { environment } from 'src/environments/environment';
+import { BrBooksComponent } from './browse/br-books/br-books.component';
+import { BrClothingComponent } from './browse/br-clothing/br-clothing.component';
+import { BrFurnitureComponent } from './browse/br-furniture/br-furniture.component';
+import { BrElectronicsComponent } from './browse/br-electronics/br-electronics.component';
+import { BrSportsgearComponent } from './browse/br-sportsgear/br-sportsgear.component';
 
 
 
@@ -48,6 +53,11 @@ const firebaseConfig = {
     BrowseComponent,
     AdditemComponent,
     ListitemComponent,
+    BrBooksComponent,
+    BrClothingComponent,
+    BrFurnitureComponent,
+    BrElectronicsComponent,
+    BrSportsgearComponent,
     
 
   ],

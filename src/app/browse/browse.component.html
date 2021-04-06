@@ -1,19 +1,39 @@
+<div class="body">
+    <div class="browse-keyword">
+        <h1>Search By Keyword</h1>
+        <input type="text" id='keyword'>
+    </div> <br><br>
 
-<div class="browse-keyword">
-    <h1>Search By Keyword</h1>
-    <input type="text" id='keyword'>
-</div> <br><br>
-
-<div class="browse-category">
     <h1>or Browse by Category</h1>
-
+    
+</div>
     <div class="containers">
-        <div class="container" router="">
+        <div class="container" (click) ="router.navigate(['./br-books']);">
             <div class="image" style="background-image: url(../../assets/images/CategoryBook.jpg);"></div>
             <p style="text-align: center;">Books</p>
+        </div>
+
+        <div class="container" (click) ="router.navigate(['./br-clothing']);">
+            <div class="image" style="background-image: url(../../assets/images/CategoryClothing.jpg);"></div>
+            <p style="text-align: center;">Clothing</p>
+        </div>
+
+        <div class="container" (click) ="router.navigate(['./br-furniture']);">
+            <div class="image" style="background-image: url(../../assets/images/CategoryFurniture.jpg);"></div>
+            <p style="text-align: center;">Furniture</p>
+        </div>
+
+        <div class="container" (click) ="router.navigate(['./br-electronics']);">
+            <div class="image" style="background-image: url(../../assets/images/CategoryElectronics.jpg);"></div>
+            <p style="text-align: center;">Electronics</p>
+        </div>
+
+        <div class="container" (click) ="router.navigate(['./br-sportsgear']);">
+            <div class="image" style="background-image: url(../../assets/images/CategorySportGear.jpg);"></div>
+            <p style="text-align: center;">Sport Gears</p>
         </div>
     </div>
 
 
-</div>
+
 

@@ -1,16 +1,33 @@
+.body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 input[type=text] {
     padding:15px 15px; 
     background-color:#e7e3e3;; 
     font-size: 18px;
     color: rgb(0, 0, 0);
     border:0 none;
-    cursor:grab;
+    cursor:zoom-in;
     -webkit-border-radius: 5px;
     border-radius: 5px; 
     outline:none;
 }
 
+.containers{
+    width: 1100px;
+
+}
+
 .image , .container{
+
+    display: inline-block; 
+    margin-left: 10px;
+    margin-right:10px;
+
     width: 200px;
     height: 200px;
     overflow: visible;
@@ -18,7 +35,7 @@ input[type=text] {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-
+    cursor: grab;
     border-radius: 20px;
   }
 

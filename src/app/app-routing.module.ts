@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BrBooksComponent } from './browse/br-books/br-books.component';
+import { BrClothingComponent } from './browse/br-clothing/br-clothing.component';
+import { BrElectronicsComponent } from './browse/br-electronics/br-electronics.component';
+import { BrFurnitureComponent } from './browse/br-furniture/br-furniture.component';
+import { BrSportsgearComponent } from './browse/br-sportsgear/br-sportsgear.component';
 import { BrowseComponent } from './browse/browse.component';
 
 import { HomeComponent } from './home';
@@ -14,8 +19,15 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'browse', component: BrowseComponent },
+  { path: 'br-books', component: BrBooksComponent },
+  { path: 'br-clothing', component: BrClothingComponent },
+  { path: 'br-furniture', component: BrFurnitureComponent },
+  { path: 'br-electronics', component: BrElectronicsComponent },
+  { path: 'br-sportsgear', component: BrSportsgearComponent },
+
   { path: 'mystore', component: MystoreComponent },
   { path: 'additem', component: AdditemComponent },
+  
   // otherwise redirect to home
   // { path: '**', redirectTo: '' }
 ];
