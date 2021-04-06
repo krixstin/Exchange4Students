@@ -25,8 +25,9 @@
 
 input[type=submit] {
     padding:15px 15px; 
-    background:rgb(212, 133, 133); 
+    background-color:#a12828;; 
     font-size: 18px;
+    color: white;
     border:0 none;
     cursor:pointer;
     -webkit-border-radius: 5px;
