@@ -28,6 +28,7 @@ import { BrClothingComponent } from './browse/br-clothing/br-clothing.component'
 import { BrFurnitureComponent } from './browse/br-furniture/br-furniture.component';
 import { BrElectronicsComponent } from './browse/br-electronics/br-electronics.component';
 import { BrSportsgearComponent } from './browse/br-sportsgear/br-sportsgear.component';
+import { BrItemComponent } from './browse/br-item/br-item.component';
 
 
 
@@ -58,6 +59,7 @@ const firebaseConfig = {
     BrFurnitureComponent,
     BrElectronicsComponent,
     BrSportsgearComponent,
+    BrItemComponent,
     
 
   ],
