@@ -25,7 +25,8 @@ const routes: Routes = [
   { path: 'br-furniture', component: BrFurnitureComponent },
   { path: 'br-electronics', component: BrElectronicsComponent },
   { path: 'br-sportsgear', component: BrSportsgearComponent },
-  { path: 'br-item', component: BrItemComponent },
+  
+  { path: 'br-item/:itemid', component: BrItemComponent },
 
   { path: 'mystore', component: MystoreComponent },
   { path: 'additem', component: AdditemComponent },
