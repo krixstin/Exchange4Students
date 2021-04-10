@@ -14,7 +14,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class AdditemComponent implements OnInit {
 
   private submissionForm!: AngularFirestoreCollection<any[]>;
-
+  private counter = 1;
   private testsubmit!: AngularFirestoreCollection<any[]>;
   constructor(private fb: FormBuilder, private firestore: AngularFirestore){
   }
@@ -47,6 +47,7 @@ export class AdditemComponent implements OnInit {
       //passing objects ( array of obtions)
       // [] for more than one Valliators
       // booktitle: ['', Validators.required ],
+      // itemid : ['', Validators.required ],
       // description : ['', Validators.required ],
       // edition: ['', Validators.required],
       // course: ['', Validators.required],
@@ -57,6 +58,7 @@ export class AdditemComponent implements OnInit {
       // shipping: ['', Validators.required]
 
       // booktitle: 'Algebra 1' ,
+      // itemid : '001'
       // description : 'Only used for a year' ,
       // edition: 14,
       // course: 'MA 132',
@@ -66,7 +68,9 @@ export class AdditemComponent implements OnInit {
       // // picture:'nah',
       // shipping: 1
 
+
       booktitle: ['' ],
+      itemID:[''],
       description : ['' ],
       edition: [''],
       course: [''],

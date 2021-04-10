@@ -4,6 +4,7 @@ export const Mock: itemBook = {
 	 //passing objects ( array of obtions)
     // [] for more than one Valliators
     booktitle: 'Temp',
+    itemid: '01',
     description: 'Temp',
     edition: 1,
     course: 'Temp',
