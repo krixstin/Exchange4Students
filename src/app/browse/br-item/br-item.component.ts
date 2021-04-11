@@ -4,6 +4,7 @@ import {Location} from '@angular/common';
 
 import {ItemService} from '../../item.service';
 
+import {itemSport} from '../../ItemSport';
 import {itemBook} from '../../ItemBook';
 import {item} from '../../Item';
 
@@ -14,7 +15,10 @@ import {item} from '../../Item';
 })
 
 export class BrItemComponent implements OnInit {
-  Item: item; 
+  
+  retrievedItem: item;
+  // Add rest of item types here.
+  Item: itemBook | itemSport // | itemFurniture | itemElectronics| itemSports | itemClothing 
   
   constructor(
   	private route: ActivatedRoute,
@@ -28,10 +32,12 @@ export class BrItemComponent implements OnInit {
 
   getItem():void{
   	const itemid = String(this.route.snapshot.paramMap.get('itemid'));
-  	this.itemService.getItem(itemid).subscribe(item => this.Item = item)
-  	//console.log("get Before:")
-  	//console.log(this.Item)
-  	this.setCategory(this.Item);
+  	this.itemService.getItem(itemid).subscribe(item => this.retrievedItem = item)
+  	console.log("get Before:")
+  	console.log(this.retrievedItem)
+  	this.setCategory(this.retrievedItem);
+  	console.log("get After:")
+  	console.log(this.Item)
   }
 
   setCategory(Item: item):void	{
@@ -40,9 +46,9 @@ export class BrItemComponent implements OnInit {
   		returnItem= Item as itemBook;
   		this.Item = returnItem as itemBook;
   	}
-  	if (Item.category == "furniture"){
-  		//returnItem= Item as itemBook;
-  		//this.Item = returnItem as itemBook;
+  	if (Item.category == "sport"){
+  		returnItem= Item as itemSport;
+  		this.Item = returnItem as itemSport;
   	}
   }
 

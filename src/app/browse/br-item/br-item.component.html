@@ -1,10 +1,15 @@
 <div *ngIf="Item">
-
-<!--  <p>Book Title: {{Item.booktitle}}</p> -->
-  <p>Description: {{Item.description}}</p>
-<!--  <p>Edition: {{item.edition}}</p> -->
-<!--  <p>Course: {{item.course}}</p> -->
-
-
+	<!-- Create a 'display' for each category. -->
+	<div *ngIf='Item.category === "book"'>
+		<p>Book Title: {{Item.booktitle}}</p> 
+  		<p>Description: {{Item.description}}</p>
+		<p>Edition: {{Item.edition}}</p>
+		<p>Course: {{Item.course}}</p> 
+	</div>
+	<div *ngIf='Item.category === "sport"'>
+		<!-- <p>Sport: {{Item.sport}}</p> -->
+  		<p>Description: {{Item.description}}</p>
+		<!-- <p>condition: {{Item.condition}}</p> -->
+	</div>
 </div>
-<p>hi</p>
+<p>br-item works!</p>

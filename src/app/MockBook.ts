@@ -1,5 +1,6 @@
 import {item} from './Item';
 import {itemBook} from './ItemBook';
+import {itemSport} from './ItemSport';
 
 
 
@@ -31,7 +32,17 @@ import {itemBook} from './ItemBook';
         // picture: 'Temp2',
         shipping: 'Temp2',
     }
+    const mockSport: itemSport = {
+        itemid: '03',
+        description: 'Temp3',
+        price:2,
+        sellerid: 'Temp3',
+        category: 'sport',
+        shipping: 'Temp3',
+        sport: 'Temp3',
+        condition: 'Temp3'
+    }
 
-        const Mock: item[] = [mockBook,mockBook2]
+        const Mock: item[] = [mockBook,mockBook2,mockSport]
 
 export{ Mock };
