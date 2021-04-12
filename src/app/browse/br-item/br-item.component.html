@@ -7,9 +7,9 @@
 		<p>Course: {{Item.course}}</p> 
 	</div>
 	<div *ngIf='Item.category === "sport"'>
-		<!-- <p>Sport: {{Item.sport}}</p> -->
-  		<p>Description: {{Item.description}}</p>
-		<!-- <p>condition: {{Item.condition}}</p> -->
+		<p>Sport: {{Item.sport}}</p>
+  		<p>Description: {{Item.description || 'none'}}</p>
+		<p>condition: {{Item.condition}}</p>
 	</div>
 </div>
 <p>br-item works!</p>
