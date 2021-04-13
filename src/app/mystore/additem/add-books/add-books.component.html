@@ -1,0 +1,57 @@
+<form [formGroup]="bookForm" >
+    <br>            
+    <div class="books-inputs">
+        <h1>YOUR BOOK</h1>
+
+        <!-- <div class="input">
+            <label for="category" >Item Category</label>&nbsp;
+            <input readonly type="text" id='category' value="books" placeholder="Books"
+            formControlName="category">
+        </div> -->
+        
+        <div class="input">
+            <label for="booktitle">Book Title</label>&nbsp;
+            <input type="text" id='booktitle' formControlName="booktitle">
+        </div>
+
+        <div class="input">
+            <label for="edition">Edition</label>&nbsp;
+            <input type="number" id='edition' formControlName="edition">
+        </div>
+
+        <div class="input">
+            <label for="course">Course</label>&nbsp;
+            <input type="text" id='edition' formControlName="course">
+        </div>
+    </div>
+    
+    <div class="general-inputs">
+        <br>
+        <h1>GENERAL INPUT</h1>
+        <div class="input">
+            <label for="sellerid">Seller ID</label>&nbsp;
+            <input type="text" id='sellerid' formControlName="sellerid">
+        </div>
+    
+        <div class="input">
+            <label for="description">Description</label>&nbsp;
+            <textarea type="text" id='description' formControlName="description"></textarea>
+            
+        </div>
+        <div class="input">
+            <label for="price">Price  $</label>&nbsp;
+            <input type="number" id='price' formControlName="price">
+        </div>
+    
+        <div class="input">
+            <label for="picture">Picture</label>&nbsp;
+            <input type="file" id='picture' >
+        </div>   
+    
+        <div class="input">
+            <label for="shipping">Shipping</label>&nbsp;
+            <input type="text" id='shipping' formControlName="shipping">&nbsp;
+        </div>   
+    </div> 
+      <input type="submit" value="Submit"  (click)="submitForm(bookForm.value)">
+</form>
