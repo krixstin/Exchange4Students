@@ -1,0 +1,57 @@
+<div *ngIf="Item">
+	<!-- Create a 'display' for each category arranged as necessary -->
+	<!-- ## NOTE: Pictures are not implemented yet, but please leave room in final design for them. ## -->
+	<div *ngIf='Item.category === "book"'> 
+  		<p>Description: {{Item.description}}</p>
+		<p>Price: {{Item.price}}</p>
+		<p>Seller ID: {{Item.sellerid}}</p>
+		<p>Category: {{Item.category}}</p>
+		<p>Shipping: {{Item.shipping}}</p>
+		<p>Book Title: {{Item.booktitle}}</p>
+		<p>Edition: {{Item.edition}}</p>
+		<p>Course: {{Item.course}}</p> 
+	</div>
+	
+	<div *ngIf='Item.category === "sport"'>
+		<p>Description: {{Item.description}}</p>
+		<p>Price: {{Item.price}}</p>
+		<p>Seller ID: {{Item.sellerid}}</p>
+		<p>Category: {{Item.category}}</p>
+		<p>Shipping: {{Item.shipping}}</p>
+		<p>Type: {{Item.type}}</p>
+		<p>Weight: {{Item.weight}}</p>
+	</div>
+	
+	<div *ngIf='Item.category === "electronic"'>
+		<p>Description: {{Item.description}}</p>
+		<p>Price: {{Item.price}}</p>
+		<p>Seller ID: {{Item.sellerid}}</p>
+		<p>Category: {{Item.category}}</p>
+		<p>Shipping: {{Item.shipping}}</p>
+		<p>Type: {{Item.type}}</p>
+		<p>Model: {{Item.model}}</p>
+	</div>
+	
+	<div *ngIf='Item.category === "furniture"'>
+		<p>Description: {{Item.description}}</p>
+		<p>Price: {{Item.price}}</p>
+		<p>Seller ID: {{Item.sellerid}}</p>
+		<p>Category: {{Item.category}}</p>
+		<p>Shipping: {{Item.shipping}}</p>
+		<p>Color: {{Item.color}}</p>
+		<p>Weight: {{Item.weight}}</p>
+		<p>Dimensions: {{Item.dimension}}</p>
+	</div>
+
+	<div *ngIf='Item.category === "clothing"'>
+		<p>Description: {{Item.description}}</p>
+		<p>Price: {{Item.price}}</p>
+		<p>Seller ID: {{Item.sellerid}}</p>
+		<p>Category: {{Item.category}}</p>
+		<p>Shipping: {{Item.shipping}}</p>
+		<p>Type: {{Item.type}}</p>
+		<p>Color: {{Item.color}}</p>
+		<p>Size: {{Item.size}}</p>
+	</div>
+
+</div>
