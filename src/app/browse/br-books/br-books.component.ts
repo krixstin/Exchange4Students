@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { item } from '../../Item';
 import { ItemService } from '../../item.service';
-
 import { Mock } from '../../MockBook';
 
 @Component({
@@ -12,7 +12,9 @@ import { Mock } from '../../MockBook';
 export class BrBooksComponent implements OnInit {
   items: item[];
 
-  constructor(private ItemService: ItemService){ }
+  constructor(public router: Router, 
+             private ItemService: ItemService) { }
+
 
   getItems():void{
   	this.ItemService.getItems()

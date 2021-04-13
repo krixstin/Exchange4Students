@@ -1,4 +1,44 @@
 
+<!-- <<<<<<< Categories-general-layout -->
+<div class="banner">
+	<div class="browse-keyword">
+	    <h1>Search By Keyword</h1>
+	    <input type="text" id='keyword'>
+	</div> 
+
+	<br><br>
+
+	<div class="browse-category">
+	    <h1>Browse by Category</h1>
+	    <div class="containers">
+
+	        <div class="container" (click) ="router.navigate(['./br-books']);">
+	            <p>Books</p>
+	        </div>
+
+	        <div class="container" (click) ="router.navigate(['./br-clothing']);">
+	            <p>Clothing</p>
+	        </div>
+
+	        <div class="container" (click) ="router.navigate(['./br-furniture']);">
+	            <p>Furniture</p>
+	        </div>
+
+	        <div class="container" (click) ="router.navigate(['./br-electronics']);">
+	            <p>Electronics</p>
+	        </div>
+
+	        <div class="container" (click) ="router.navigate(['./br-sportsgear']);">
+	            <p>Sport Gears</p>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+
+
+
+<!-- ======= -->
 <p>br-books works!(temp|click to display item)</p>
 
 <h2>Temp listing of 'Books':</h2>
@@ -9,3 +49,4 @@
    </a>
   </li>
 </ul>
+<!-- >>>>>>> main -->
