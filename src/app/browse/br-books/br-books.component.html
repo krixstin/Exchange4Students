@@ -1,1 +1,11 @@
-<p>Books here!!!!! works!</p>
+
+<p>br-books works!(temp|click to display item)</p>
+
+<h2>Temp listing of 'Books':</h2>
+<ul class="items">
+  <li *ngFor = 'let item of items'>
+   <a routerLink= "/br-item/{{item.itemid}}">
+   <span> {{item.itemid}}</span> {{item.description}}
+   </a>
+  </li>
+</ul>
