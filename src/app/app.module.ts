@@ -29,6 +29,11 @@ import { BrFurnitureComponent } from './browse/br-furniture/br-furniture.compone
 import { BrElectronicsComponent } from './browse/br-electronics/br-electronics.component';
 import { BrSportsgearComponent } from './browse/br-sportsgear/br-sportsgear.component';
 import { BrItemComponent } from './browse/br-item/br-item.component';
+import { AddBooksComponent } from './mystore/additem/add-books/add-books.component';
+import { AddClothingComponent } from './mystore/additem/add-clothing/add-clothing.component';
+import { AddElectronicsComponent } from './mystore/additem/add-electronics/add-electronics.component';
+import { AddFurnitureComponent } from './mystore/additem/add-furniture/add-furniture.component';
+import { AddSportsgearComponent } from './mystore/additem/add-sportsgear/add-sportsgear.component';
 
 
 
@@ -60,6 +65,11 @@ const firebaseConfig = {
     BrElectronicsComponent,
     BrSportsgearComponent,
     BrItemComponent,
+    AddBooksComponent,
+    AddClothingComponent,
+    AddElectronicsComponent,
+    AddFurnitureComponent,
+    AddSportsgearComponent,
     
 
   ],

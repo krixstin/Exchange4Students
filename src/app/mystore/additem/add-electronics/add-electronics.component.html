@@ -1,0 +1,46 @@
+<form [formGroup]="ourForm" >
+    <br>            
+    <div class="clothing-inputs">
+        <h1>YOUR CLOTHINMG</h1>
+        
+        <div class="input">
+            <label for="type">Type</label>&nbsp;
+            <input type="text" id='electronicstype' formControlName="electronictype">
+        </div>
+
+        <div class="input">
+            <label for="model">Model</label>&nbsp;
+            <input type="number" id='model' formControlName="model">
+        </div> 
+    </div>
+    
+    <div class="general-inputs">
+        <br>
+        <h1>GENERAL INPUT</h1>
+        <div class="input">
+            <label for="sellerid">Seller ID</label>&nbsp;
+            <input type="text" id='sellerid' formControlName="sellerid">
+        </div>
+    
+        <div class="input">
+            <label for="description">Description</label>&nbsp;
+            <textarea type="text" id='description' formControlName="description"></textarea>
+            
+        </div>
+        <div class="input">
+            <label for="price">Price  $</label>&nbsp;
+            <input type="number" id='price' formControlName="price">
+        </div>
+    
+        <div class="input">
+            <label for="picture">Picture</label>&nbsp;
+            <input type="file" id='picture' >
+        </div>   
+    
+        <div class="input">
+            <label for="shipping">Shipping</label>&nbsp;
+            <input type="text" id='shipping' formControlName="shipping">&nbsp;
+        </div>   
+    </div> 
+      <input type="submit" value="Submit"  (click)="submitForm(ourForm.value)">
+</form>
