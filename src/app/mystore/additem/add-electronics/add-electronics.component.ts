@@ -20,7 +20,7 @@ export class AddElectronicsComponent implements OnInit {
     private submissionForm!: AngularFirestoreCollection<any[]>
 
   ourForm = new FormGroup({
-    type: new FormControl('electronicstype'),
+    type: new FormControl('type'),
     model: new FormControl('model'),
 
     description :new FormControl('description'),
