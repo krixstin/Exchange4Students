@@ -27,7 +27,7 @@ export class BrFurnitureComponent implements OnInit {
     console.log(this.retrievedItems)
     for (const index in this.retrievedItems){
       var item:item = this.retrievedItems[index]
-        if (item.category !== "furniture"){
+        if (item.category !== "Furniture"){
           removedItems.push(parseInt(index))
         }
     }

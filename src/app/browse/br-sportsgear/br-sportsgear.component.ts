@@ -27,7 +27,7 @@ export class BrSportsgearComponent implements OnInit {
     console.log(this.retrievedItems)
     for (const index in this.retrievedItems){
       var item:item = this.retrievedItems[index]
-        if (item.category !== "sport"){
+        if (item.category !== "Sport Gears"){
           removedItems.push(parseInt(index))
         }
     }
