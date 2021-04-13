@@ -20,7 +20,7 @@ export class AddSportsgearComponent implements OnInit {
     private submissionForm!: AngularFirestoreCollection<any[]>
 
   ourForm = new FormGroup({
-    type: new FormControl('clothingtype'),
+    type: new FormControl('type'),
     color: new FormControl('color'),
     size: new FormControl('size'),
 

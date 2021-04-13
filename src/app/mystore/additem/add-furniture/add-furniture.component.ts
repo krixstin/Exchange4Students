@@ -20,7 +20,7 @@ export class AddFurnitureComponent implements OnInit {
     private submissionForm!: AngularFirestoreCollection<any[]>
 
   ourForm = new FormGroup({
-    type: new FormControl('furnituretype'),
+    type: new FormControl('type'),
     color: new FormControl('color'),
     dimension: new FormControl('dimension'),
     weight: new FormControl('weight'),
