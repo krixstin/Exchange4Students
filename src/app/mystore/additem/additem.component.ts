@@ -1,4 +1,5 @@
 import { ngModuleJitUrl } from '@angular/compiler';
+import { ViewEncapsulation } from '@angular/core';
 import { Component, Injectable, OnInit } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
@@ -9,7 +10,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 @Component({
   selector: 'app-additem',
   templateUrl: './additem.component.html',
-  styleUrls: ['./additem.component.css']
+  styleUrls: ['./additem.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AdditemComponent implements OnInit {
 

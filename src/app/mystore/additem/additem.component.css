@@ -34,6 +34,24 @@ input[type=submit] {
     border-radius: 5px; 
 }
 
-.helper-text{
-    color: red;
+.mat-tab-label {
+    min-width: 25px !important;
+    padding: 5px;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+}
+
+/* Styles for the active tab label */
+.mat-tab-label.mat-tab-label-active {
+    min-width: 25px !important;
+    padding: 5px;
+    background-color: transparent;
+    color: rgb(128, 33, 33);
+    font-weight: 700;
+}
+
+/* Styles for the ink bar */
+.mat-ink-bar {
+    background-color: rgb(0, 0, 0);
 }
