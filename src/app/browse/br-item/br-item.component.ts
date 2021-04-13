@@ -4,9 +4,14 @@ import {Location} from '@angular/common';
 
 import {ItemService} from '../../item.service';
 
+import {item} from '../../Item';
 import {itemSport} from '../../ItemSport';
 import {itemBook} from '../../ItemBook';
-import {item} from '../../Item';
+import {itemClothing} from '../../ItemClothing';
+import {itemElectronic} from '../../ItemElectronic';
+import {itemFurniture} from '../../ItemFurniture';
+
+
 
 @Component({
   selector: 'app-br-item',
@@ -18,7 +23,7 @@ export class BrItemComponent implements OnInit {
   
   retrievedItem: item;
   // Add rest of item types here.
-  Item: itemBook | itemSport // | itemFurniture | itemElectronics| itemSports | itemClothing 
+  Item: itemBook | itemSport | itemFurniture | itemElectronic | itemClothing 
   
   constructor(
   	private route: ActivatedRoute,
@@ -41,14 +46,20 @@ export class BrItemComponent implements OnInit {
   }
 
   setCategory(Item: item):void	{
-  	var returnItem;
   	if (Item.category == "book"){
-  		returnItem= Item as itemBook;
-  		this.Item = returnItem as itemBook;
+  		this.Item = Item as itemBook;
   	}
   	if (Item.category == "sport"){
-  		returnItem= Item as itemSport;
-  		this.Item = returnItem as itemSport;
+  		this.Item = Item as itemSport;
+  	}
+  	if (Item.category == "clothing"){
+  		this.Item = Item as itemClothing;
+  	}
+  	if (Item.category == "electronic"){
+  		this.Item = Item as itemElectronic;
+  	}
+  	if (Item.category == "furniture"){
+  		this.Item = Item as itemFurniture;
   	}
   }
 

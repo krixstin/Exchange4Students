@@ -13,7 +13,7 @@ import {item} from './Item';
 *   shipping: string,
 */
 
-export interface itemSport extends item{
+export interface itemElectronic extends item{
     type: string,
-    weight: number,
+    model: string,
 }

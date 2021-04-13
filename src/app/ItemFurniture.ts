@@ -13,7 +13,9 @@ import {item} from './Item';
 *   shipping: string,
 */
 
-export interface itemSport extends item{
+export interface itemFurniture extends item{
     type: string,
+    color: string,
     weight: number,
+    dimension: string,
 }
