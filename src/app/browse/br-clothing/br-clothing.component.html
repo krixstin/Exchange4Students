@@ -34,6 +34,18 @@
 	</div>
 </div>
 
+<!-- ======= -->
+<p>br-clothing works!(temp|click to display item)</p>
+
+<h2>Temp listing of 'Clothing':</h2>
+<ul class="items">
+  <li *ngFor = 'let item of items'>
+   <a routerLink= "/br-item/{{item.itemid}}">
+   <span> {{item.itemid}}</span> {{item.description}}
+   </a>
+  </li>
+</ul>
+<!-- >>>>>>> main -->
 
 
 
