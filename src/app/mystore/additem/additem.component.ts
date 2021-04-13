@@ -83,16 +83,16 @@ export class AdditemComponent implements OnInit {
   }
 
   submitData(value: any){
-    console.log(this.ourForm.value);
-    console.log();
-    console.log(this.submissionForm);
-    console.log();
-    console.log(this.submissionForm.add(value));
-    console.log();
+    // console.log(this.ourForm.value);
+    // console.log();
+    // console.log(this.submissionForm);
+    // console.log();
+    // console.log(this.submissionForm.add(value));
+    // console.log();
     // console.log(this.submissionForm.doc(value));
     console.log(this.fb.control)
       this.submissionForm.add(value).then(res=>{
-        console.log('Item added');
+        console.log('Item added!');
       }).catch(err=> console.log(err)
       );
     
