@@ -27,7 +27,7 @@ export class BrElectronicsComponent implements OnInit {
     console.log(this.retrievedItems)
     for (const index in this.retrievedItems){
       var item:item = this.retrievedItems[index]
-        if (item.category !== "Electronics"){
+        if (item.category !== "electronics"){
           removedItems.push(parseInt(index))
         }
     }

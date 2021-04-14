@@ -11,13 +11,13 @@ import {itemFurniture} from './ItemFurniture';
 	    //passing objects ( array of obtions)
         // [] for more than one Valliators
         booktitle: 'Temp booktitle',
-        itemid: '01',
+        itemID: '01',
         description: 'Temp descrip',
         edition: 101,
         course: 'Temp course',
         price: 102,
         sellerid: 'Temp sllerid',
-        category: 'Books',
+        category: 'books',
         // picture: 'Temp',
         shipping: 'Temp shipping',
     }
@@ -25,43 +25,43 @@ import {itemFurniture} from './ItemFurniture';
         //passing objects ( array of obtions)
         // [] for more than one Valliators
         booktitle: 'Temp2 booktitle',
-        itemid: '02',
+        itemID: '02',
         description: 'Temp2 descrip',
         edition: 201,
         course: 'Temp2 course',
         price: 202,
         sellerid: 'Temp2 sellerid',
-        category: 'Books',
+        category: 'books',
         // picture: 'Temp2',
         shipping: 'Temp2 shipping',
     }
     const mockSport: itemSport = {
-        itemid: '03',
+        itemID: '03',
         description: 'Temp3 descrip',
         price:301,
         sellerid: 'Temp3 sellerid',
-        category: 'Sport Gears',
+        category: 'sportsgear',
         shipping: 'Temp3 shipping',
         type: 'Temp3 type',
         weight: 302
     }
     const mockElectronic: itemElectronic = {
-        itemid: '04',
+        itemID: '04',
         description: 'Temp4 descrip',
         price:401,
         sellerid: 'Temp4 sellerid',
-        category: 'Electronics',
+        category: 'electronics',
         shipping: 'Temp4 shipping',
         type: 'Temp4 type',
         model: 'Temp4 model',
         
     }
     const mockFurniture: itemFurniture = {
-        itemid: '05',
+        itemID: '05',
         description: 'Temp5 descrip',
         price:501,
         sellerid: 'Temp5 sellerid',
-        category: 'Furniture',
+        category: 'furniture',
         shipping: 'Temp5 shipping',
         type: 'Temp5 type',
         weight: 501,
@@ -70,11 +70,11 @@ import {itemFurniture} from './ItemFurniture';
 
     }
     const mockClothing: itemClothing = {
-        itemid: '06',
+        itemID: '06',
         description: 'Temp6 descrip',
         price:601,
         sellerid: 'Temp6 sellerid',
-        category: 'Clothing',
+        category: 'clothing',
         shipping: 'Temp6 shipping',
         type: 'Temp6 type',
         size: 'Temp6 size',
