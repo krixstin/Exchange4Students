@@ -1,7 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Observable, of} from 'rxjs';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
-import { item } from './Item';
+import {item} from './Item';
+import {itemSport} from './ItemSport';
+import {itemBook} from './ItemBook';
+import {itemClothing} from './ItemClothing';
+import {itemElectronic} from './ItemElectronic';
+import {itemFurniture} from './ItemFurniture';
+
 import { Mock } from './MockBook';
 
 @Injectable({
@@ -9,12 +17,18 @@ import { Mock } from './MockBook';
 })
 export class ItemService {
 
-  constructor() { }
+  private storedDatabase: AngularFirestoreCollection<any[]>
+  constructor(private firestore: AngularFirestore){}
 
   getItems(): Observable<item[]>{
   	// Currently returns Mock Item list 
   	// TODO: Implement get from database
-  	const items = of(Mock)
+    this.storedDatabase = this.firestore.collection('items');
+    var retrievedItems;
+    this.storedDatabase.get().subscribe(items => console.log(items));
+  	console.log("Firestore Database")
+    console.log(retrievedItems)
+    const items = of(Mock)
   	return items;
   }
 
