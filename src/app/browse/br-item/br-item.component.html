@@ -3,6 +3,7 @@
 	<!-- ## NOTE: Pictures are not implemented yet, but please leave room in final design for them. ## -->
 	<div *ngIf='Item.category === "books"'> 
 	<div class="itemDisplay" *ngIf='Item.category === "books"'> 
+		<!--<img scr="">-->
   		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
 		<p>Seller ID: {{Item.sellerid}}</p>
@@ -20,10 +21,11 @@
 			</div>
 		</div>
 	</div>
+	</div>
 	
 	<div *ngIf='Item.category === "sportsgear"'>
-	<a href="mailto:gonelli2113@gmail.com">
 	<div class="itemDisplay" *ngIf='Item.category === "sportsgear"'>
+		<!--<img scr="">-->
 		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
 		<p>Seller ID: {{Item.sellerid}}</p>
@@ -40,12 +42,13 @@
 			</div>
 		</div>
 	</div>
+	</div>
 	
 
 	<div *ngIf='Item.category === "electronics"'>
 
 	<div class="itemDisplay" *ngIf='Item.category === "electronics"'>
-
+		<!--<img scr="">-->
 		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
 		<p>Seller ID: {{Item.sellerid}}</p>
@@ -62,12 +65,13 @@
 			</div>
 		</div>
 	</div>
+	</div>
 	
 
 	<div *ngIf='Item.category === "furniture"'>
 
 	<div class="itemDisplay" *ngIf='Item.category === "furniture"'>
-
+		<!--<img scr="">-->
 		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
 		<p>Seller ID: {{Item.sellerid}}</p>
@@ -85,12 +89,12 @@
 			</div>
 		</div>
 	</div>
-
+	</div>
    
 	<div *ngIf='Item.category === "clothing"'>
    
 	<div class="itemDisplay" *ngIf='Item.category === "clothing"'>
-
+		<!--<img scr="">-->
 		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
 		<p>Seller ID: {{Item.sellerid}}</p>
@@ -107,4 +111,5 @@
 				<button>Add to Cart</button>
 			</div>
 		</div>
+	</div>
 	</div>
