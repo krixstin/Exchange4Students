@@ -7,7 +7,7 @@
 }
 
 .banner .browse-keyword{
-    margin-left: 0;
+    margin-left: 5px;
     display: flex;
     flex-direction: row;
     height:50px;
@@ -15,22 +15,22 @@
 }
 
 .banner .browse-category{
-    margin-left: 50%;
+    margin-left: 40%;
     display: flex;
     flex-direction: row;
     white-space: nowrap;
 }
 
 .banner h1{
-    font-size: 40px;
+    font-size: 20px;
 }
 
 
 input[type=text] {
-    padding:20px 15px; 
+    padding:5px 15px; 
     margin-left: 10px;
     background-color:#e7e3e3; 
-    font-size: 18px;
+    font-size: 10px;
     color: rgb(0, 0, 0);
     border:0 none;
     cursor:zoom-in;
@@ -42,24 +42,25 @@ input[type=text] {
 .containers{
     display: flex;
     flex-direction: row;
-   /* width: 1200px;*/
 
 }
 
 
 .container{
-   /* width: 100px;
-    height: 20px;*/
     box-sizing: border-box;
     cursor: grab;
     border-radius: 20px;
-    margin-left: 30px;
-    padding: 10px 10px;
-    background-color: #e7e3e3;
+    margin-top: 8px;
+    margin-left: 20px;
   }
 
+.container p{
+    font-size: 20px;
+    background-color: #e7e3e3;
+}
+
 p{
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .searchLine{
@@ -85,7 +86,5 @@ a{
     top:80%;
     left: 2%;
     width: 100%;
-    font-size: 60px;
+    font-size: 20px;
 }
-
-

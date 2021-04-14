@@ -3,7 +3,7 @@
 	<!-- ## NOTE: Pictures are not implemented yet, but please leave room in final design for them. ## -->
 	<div *ngIf='Item.category === "books"'> 
 	<div class="itemDisplay" *ngIf='Item.category === "books"'> 
-		<!--<img scr="">-->
+		<img src={{Item.picture}}>
   		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
 		<p>Seller ID: {{Item.sellerid}}</p>
