@@ -14,6 +14,9 @@ import { Router } from '@angular/router';
 })
 export class AddSportsgearComponent implements OnInit {
 
+  imgSrc: string ="../../../../assets/images/CategorySportGear.jpg";
+  selectedImage: any = null;
+
   constructor(public router: Router,
     private fb: FormBuilder, 
     private firestore: AngularFirestore){}
@@ -50,8 +53,25 @@ export class AddSportsgearComponent implements OnInit {
     });
   }
 
+  showPreview(event:any){
+    console.log(event)
+    if(event.target.files ){
+       
+      const reader = new FileReader();
+      reader.onload = (e: any)=> this.imgSrc= e.target.result;
+      reader.readAsDataURL(event.target.files[0]);
+      this.selectedImage = event.target.files[0];
+    }
+    else {
+      this.imgSrc= "../../../../assets/images/CategorySportGear.jpg";
+      this.selectedImage= null;
+    }
+  }
+
   submitForm(value: any){
     console.log(this.fb.control)
+
+   
     this.submissionForm.add(value).then(res=>{
       console.log('item added!');
       }).catch(err=> console.log(err)

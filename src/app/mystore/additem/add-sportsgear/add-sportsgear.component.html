@@ -34,8 +34,9 @@
         </div>
     
         <div class="input">
-            <label for="picture">Picture</label>&nbsp;
-            <input type="file" id='picture' >
+            <img [src] = "imgSrc" width = "250 px" height = "150px" (click)="fileUploader.click" > <br>
+             <label for="picture">Picture</label>&nbsp;
+            <input type="file" #fileUploader accept="image/*" formControlName="picture" id='picture' (change)="showPreview($event)">
         </div>   
     
         <div class="input">
