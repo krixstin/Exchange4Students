@@ -43,7 +43,7 @@ export class AddSportsgearComponent implements OnInit {
 
   ngOnInit(): void{
     this.resetForm();
-    
+
     // this.initializeForm();
     // this.submissionForm=this.firestore.collection('items');
     // this.ourForm = this.fb.group({
@@ -84,7 +84,7 @@ export class AddSportsgearComponent implements OnInit {
      var filePath = `${this.selectedImage.name}_${new Date().getTime()})`
      const fileRef = this.storage.ref(filePath);
      console.log("this is file path",filePath);
-     this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
+     this.storage.upload(filePath, this.selectedImage.name.spli('.').slice(0,-1).join('')).snapshotChanges().pipe(
       finalize(()=>{
         fileRef.getDownloadURL().subscribe((url)=>{
           value['picture']=url;
@@ -113,7 +113,7 @@ get formControl(){
       description : '' ,
       price: '',
       sellerid: '',
-      category: '',
+      category: 'sportsgear',
       picture:'',
       shipping: ''
     });
