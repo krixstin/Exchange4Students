@@ -1,15 +1,20 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="br-books.component.css">
+</head>
+<body>
 <!-- <<<<<<< Categories-general-layout -->
 <div class="banner">
 	<div class="browse-keyword">
-	    <h1>Search By Keyword</h1>
+	    <h1>Search By Keyword: </h1>
 	    <input type="text" id='keyword'>
 	</div> 
 
-	<br><br>
 
 	<div class="browse-category">
-	    <h1>Browse by Category</h1>
+	    <h1>Browse by Category: </h1>
 	    <div class="containers">
 
 	        <div class="container" (click) ="router.navigate(['./br-books']);">
@@ -36,17 +41,26 @@
 </div>
 
 
+<br>
+   
+<div class="searchLine">
+	<p>These are our current selections based on your search</p>	
+</div>
+   
 
-
-<!-- ======= -->
-<p>br-books works!(temp|click to display item)</p>
-
-<h2>Temp listing of 'Books':</h2>
-<ul class="items">
-  <li *ngFor = 'let item of items'>
-   <a routerLink= "/br-item/{{item.itemID}}">
-   <span> {{item.itemid}}</span> {{item.description}}
-   </a>
-  </li>
-</ul>
+<h2>Temp listing of 'Books':</h2>-->
+<br>
+<div class="items">
+	<div class="oneItem" *ngFor = 'let item of items'>
+		<div class="colorBox" >
+			<img src="../../assets/images/ImageBackground.JPG">
+				<a routerLink= "/br-item/{{item.itemId}}">
+   				<span>{{item.itemid}}</span> {{item.description}}
+   				</a>	
+		</div>
+	</div>
+</div>
+   
 <!-- >>>>>>> main -->
+</body>
+</html>
