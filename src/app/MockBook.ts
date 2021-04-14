@@ -66,16 +66,16 @@ import {itemFurniture} from './ItemFurniture';
     const mockBook5: itemBook = {
         //passing objects ( array of obtions)
         // [] for more than one Valliators
-        booktitle: 'Temp2 booktitle',
+        booktitle: 'Temp5 booktitle',
         itemID: '05',
-        description: 'Temp2 descrip',
-        edition: 201,
-        course: 'Temp2 course',
-        price: 202,
-        sellerid: 'Temp2 sellerid',
+        description: 'Temp5 descrip',
+        edition: 501,
+        course: 'Temp5 course',
+        price: 502,
+        sellerid: 'Temp5 sellerid',
         category: 'books',
         // picture: 'Temp2',
-        shipping: 'Temp2 shipping',
+        shipping: 'Temp5 shipping',
     }
     const mockSport: itemSport = {
         itemID: '06',
