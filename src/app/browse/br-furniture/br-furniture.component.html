@@ -34,7 +34,23 @@
 	</div>
 </div>
 
-<!-- ======= -->
+<div class="searchLine">
+	<p>These are our current selections based on your search</p>	
+</div>
+
+<br>
+<div class="items">
+	<div class="oneItem" *ngFor = 'let item of items'>
+		<div class="colorBox" >
+			<img src="../../assets/images/ImageBackground.JPG" width="200px">
+				<a routerLink= "/br-item/{{item.itemID}}">
+   				<span>{{item.itemID}}</span> {{item.description}}
+   				</a>	
+		</div>
+	</div>
+</div>
+
+<!--
 <p>br-furniture works!(temp|click to display item)</p>
 
 <h2>Temp listing of 'Furniture':</h2>
@@ -45,6 +61,7 @@
    </a>
   </li>
 </ul>
+-->
 <!-- >>>>>>> main -->
 
 
