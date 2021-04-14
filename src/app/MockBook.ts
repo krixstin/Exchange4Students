@@ -8,7 +8,7 @@ import {itemFurniture} from './ItemFurniture';
 
 
     const mockBook: itemBook = {
-	    //passing objects ( array of obtions)
+        //passing objects ( array of obtions)
         // [] for more than one Valliators
         booktitle: 'Temp booktitle',
         itemID: '01',
@@ -35,8 +35,50 @@ import {itemFurniture} from './ItemFurniture';
         // picture: 'Temp2',
         shipping: 'Temp2 shipping',
     }
-    const mockSport: itemSport = {
+    const mockBook3: itemBook = {
+        //passing objects ( array of obtions)
+        // [] for more than one Valliators
+        booktitle: 'Temp3 booktitle',
         itemID: '03',
+        description: 'Temp3 descrip',
+        edition: 301,
+        course: 'Temp3 course',
+        price: 302,
+        sellerid: 'Temp3 sellerid',
+        category: 'books',
+        // picture: 'Temp2',
+        shipping: 'Temp3 shipping',
+    }
+    const mockBook4: itemBook = {
+        //passing objects ( array of obtions)
+        // [] for more than one Valliators
+        booktitle: 'Temp4 booktitle',
+        itemID: '04',
+        description: 'Temp4 descrip',
+        edition: 401,
+        course: 'Temp4 course',
+        price: 402,
+        sellerid: 'Temp4 sellerid',
+        category: 'books',
+        // picture: 'Temp2',
+        shipping: 'Temp4 shipping',
+    }
+    const mockBook5: itemBook = {
+        //passing objects ( array of obtions)
+        // [] for more than one Valliators
+        booktitle: 'Temp5 booktitle',
+        itemID: '05',
+        description: 'Temp5 descrip',
+        edition: 501,
+        course: 'Temp5 course',
+        price: 502,
+        sellerid: 'Temp5 sellerid',
+        category: 'books',
+        // picture: 'Temp2',
+        shipping: 'Temp5 shipping',
+    }
+    const mockSport: itemSport = {
+        itemID: '06',
         description: 'Temp3 descrip',
         price:301,
         sellerid: 'Temp3 sellerid',
@@ -46,7 +88,7 @@ import {itemFurniture} from './ItemFurniture';
         weight: 302
     }
     const mockElectronic: itemElectronic = {
-        itemID: '04',
+        itemID: '07',
         description: 'Temp4 descrip',
         price:401,
         sellerid: 'Temp4 sellerid',
@@ -57,7 +99,7 @@ import {itemFurniture} from './ItemFurniture';
         
     }
     const mockFurniture: itemFurniture = {
-        itemID: '05',
+        itemID: '08',
         description: 'Temp5 descrip',
         price:501,
         sellerid: 'Temp5 sellerid',
@@ -70,7 +112,7 @@ import {itemFurniture} from './ItemFurniture';
 
     }
     const mockClothing: itemClothing = {
-        itemID: '06',
+        itemID: '09',
         description: 'Temp6 descrip',
         price:601,
         sellerid: 'Temp6 sellerid',
@@ -81,6 +123,6 @@ import {itemFurniture} from './ItemFurniture';
         color: 'Temp6 color'
     }
 
-        const Mock: item[] = [mockBook,mockBook2,mockSport,mockElectronic,mockFurniture,mockClothing]
+    const Mock: item[] = [mockBook,mockBook2,mockBook3,mockBook4,mockBook5,mockSport,mockElectronic,mockFurniture,mockClothing]
 
 export{ Mock };
