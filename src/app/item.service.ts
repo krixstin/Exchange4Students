@@ -28,8 +28,11 @@ export class ItemService {
   getItems(): Observable<item[]>{
   	// Currently returns Mock Item list 
   	// TODO: Implement get from database
+    this.storedDatabase.get().subscribe()
+
     const items = of(Mock)
 //    AutoId.newId();
+//    return this.items$;
   	return items;
   }
 

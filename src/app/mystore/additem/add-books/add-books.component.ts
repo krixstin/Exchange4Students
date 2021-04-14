@@ -44,7 +44,7 @@ export class AddBooksComponent implements OnInit {
     edition: [''],
     course: [''],
 
-    itemid:[''],
+    itemID:[this.newId()],
     description : ['' ],
     price: [''],
     sellerid: [''],
@@ -61,6 +61,17 @@ export class AddBooksComponent implements OnInit {
       console.log('Item added!');
       }).catch(err=> console.log(err)
       );
+  }
+
+  newId(): string {
+    // Alphanumeric characters
+    const chars =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let autoId = '';
+    for (let i = 0; i < 20; i++) {
+      autoId += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return autoId;
   }
 
 }
