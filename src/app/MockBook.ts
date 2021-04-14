@@ -123,7 +123,7 @@ import {itemFurniture} from './ItemFurniture';
         color: 'Temp6 color'
     }
 
-    const Mock: item[] = [mockBook,mockBook2,mockSport,mockElectronic,mockFurniture,mockClothing]
+    const Mock: item[] = [mockBook,mockBook2,mockBook3,mockBook4,mockBook5,mockSport,mockElectronic,mockFurniture,mockClothing]
 
     function newId(): string {
     // Alphanumeric characters
@@ -134,7 +134,7 @@ import {itemFurniture} from './ItemFurniture';
       autoId += chars.charAt(Math.floor(Math.random() * chars.length));
     }
     return autoId;
-  }
+
 
 }
 
