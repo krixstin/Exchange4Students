@@ -18,13 +18,17 @@ import { Mock } from './MockBook';
 export class ItemService {
 
   private storedDatabase: AngularFirestoreCollection<any[]>
+<<<<<<< HEAD
   items$: Observable<item[]>
+=======
+>>>>>>> 2fc18ef223204b12328c1569dd9539ce594fa768
   constructor(private firestore: AngularFirestore){}
 
   getItems(): Observable<item[]>{
   	// Currently returns Mock Item list 
   	// TODO: Implement get from database
     this.storedDatabase = this.firestore.collection('items');
+<<<<<<< HEAD
     this.items$ = this.firestore.collection<item>('items', (ref) => 
         ref
       )
@@ -37,6 +41,12 @@ export class ItemService {
     this.storedDatabase.get().subscribe(items => console.log(items));
   	console.log("Firestore Database")
     console.log(tempo)
+=======
+    var retrievedItems;
+    this.storedDatabase.get().subscribe(items => console.log(items));
+  	console.log("Firestore Database")
+    console.log(retrievedItems)
+>>>>>>> 2fc18ef223204b12328c1569dd9539ce594fa768
     const items = of(Mock)
   	return items;
   }
