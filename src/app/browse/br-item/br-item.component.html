@@ -1,7 +1,7 @@
 <div *ngIf="Item">
 	<!-- Create a 'display' for each category arranged as necessary -->
 	<!-- ## NOTE: Pictures are not implemented yet, but please leave room in final design for them. ## -->
-	<div *ngIf='Item.category === "book"'> 
+	<div *ngIf='Item.category === "books"'> 
   		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
 		<p>Seller ID: {{Item.sellerid}}</p>
@@ -12,7 +12,7 @@
 		<p>Course: {{Item.course}}</p> 
 	</div>
 	
-	<div *ngIf='Item.category === "sport"'>
+	<div *ngIf='Item.category === "sportsgear"'>
 		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
 		<p>Seller ID: {{Item.sellerid}}</p>
@@ -22,7 +22,7 @@
 		<p>Weight: {{Item.weight}}</p>
 	</div>
 	
-	<div *ngIf='Item.category === "electronic"'>
+	<div *ngIf='Item.category === "electronics"'>
 		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
 		<p>Seller ID: {{Item.sellerid}}</p>

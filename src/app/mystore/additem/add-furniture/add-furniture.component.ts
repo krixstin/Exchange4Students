@@ -43,7 +43,7 @@ export class AddFurnitureComponent implements OnInit {
     dimension: [''],
     weight:[''],
 
-    itemID:[''],
+    itemID:[this.newId()],
     description : ['' ],
     price: [''],
     sellerid: [''],
@@ -61,4 +61,16 @@ export class AddFurnitureComponent implements OnInit {
       );
   }
 
+  newId(): string {
+    // Alphanumeric characters
+    const chars =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let autoId = '';
+    for (let i = 0; i < 20; i++) {
+      autoId += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return autoId;
+  }
+
 }
+
