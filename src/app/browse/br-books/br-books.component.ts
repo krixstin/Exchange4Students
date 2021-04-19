@@ -15,7 +15,7 @@ export class BrBooksComponent implements OnInit {
 
 
   constructor(public router: Router, 
-             private ItemService: ItemService) { }
+             public ItemService: ItemService) { }
 
 
   getItems():void{

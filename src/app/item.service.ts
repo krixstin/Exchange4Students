@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of} from 'rxjs';
+import { Observable, of,} from 'rxjs';
+import { map, find } from 'rxjs/operators';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 //import {AutoId} from '@firebase/firestore/dist/rn/firestore/src/util/misc';
@@ -32,14 +33,14 @@ export class ItemService {
 
     const items = of(Mock)
 //    AutoId.newId();
-//    return this.items$;
-  	return items;
+    return this.items$;
+//  	return items;
   }
 
   getItem(itemID: string): Observable<item>{
   	// Currently reads from Mock Item list
   	// TODO: Replace Mock with get from database
-  	const item = Mock.find(temp => temp.itemID === itemID) as item
-  	return of(item)
+  	const item = this.items$.pipe(map(temp => temp.find(temp => temp.itemID === itemID) as item)) ;
+    return item;
   }
 }
