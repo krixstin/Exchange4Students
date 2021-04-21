@@ -29,14 +29,14 @@ export class AddSportsgearComponent implements OnInit {
     private submissionForm!: AngularFirestoreCollection<any[]>
     
   ourForm = new FormGroup({
-    type: new FormControl('type', Validators.required),
+    title: new FormControl('title'),
     weight: new FormControl('weight'),
     category: new FormControl('category'),
 
     description :new FormControl('description'),
     price: new FormControl('price'),
     sellerid: new FormControl('sellerid'),
-    picture:new FormControl('picture', Validators.required),
+    picture:new FormControl('picture'),
     shipping: new FormControl('shipping'),
 
   });  
@@ -107,7 +107,7 @@ get formControl(){
   resetForm(){
     this.ourForm.reset();
     this.ourForm.setValue({
-      type: '',
+      title: '',
       weight: '',
 
       description : '' ,
