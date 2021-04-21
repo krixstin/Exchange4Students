@@ -45,6 +45,7 @@ export class AddSportsgearComponent implements OnInit {
     this.resetForm();
 
     // this.initializeForm();
+
     // this.submissionForm=this.firestore.collection('items');
     // this.ourForm = this.fb.group({
 
@@ -74,6 +75,7 @@ export class AddSportsgearComponent implements OnInit {
       this.imgSrc= "../../../../assets/images/CategorySportGear.jpg";
       this.selectedImage= null;
     }
+
   }
 
   submitForm(value: any){
@@ -122,6 +124,18 @@ get formControl(){
     this.isSubmitted=false;
 
   }
+
+  newId(): string {
+    // Alphanumeric characters
+    const chars =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let autoId = '';
+    for (let i = 0; i < 20; i++) {
+      autoId += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return autoId;
+  }
+
 }
 
 

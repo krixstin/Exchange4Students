@@ -45,6 +45,15 @@ h6 {
   flex-direction: column;
   align-items: center;
 }
+
+.content .navv .mat-stroked-button{
+  background-color: #a12828;
+  color: rgb(255, 255, 255);
+  padding: 0 25px;
+}
+
+
+
 /* 
 footer {
   margin-top: 8px;
