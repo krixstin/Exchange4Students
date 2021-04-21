@@ -19,8 +19,7 @@ export class BrFurnitureComponent implements OnInit {
 
 
   getItems():void{
-  	this.ItemService.getItems()
-  		.subscribe(items => this.retrievedItems = items)
+    this.retrievedItems = this.ItemService.getItems()
 
     var removedItems: number[] = [];
 

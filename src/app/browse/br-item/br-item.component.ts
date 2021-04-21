@@ -37,7 +37,7 @@ export class BrItemComponent implements OnInit {
 
   getItem():void{
   	const itemid = String(this.route.snapshot.paramMap.get('itemid'));
-  	this.itemService.getItem(itemid).subscribe(item => this.retrievedItem = item)
+  	this.retrievedItem = this.itemService.getItem(itemid);
   	console.log("get Before:")
   	console.log(this.retrievedItem)
   	this.setCategory(this.retrievedItem);
