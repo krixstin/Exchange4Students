@@ -22,8 +22,8 @@ export class AddBooksComponent implements OnInit {
     private firestore: AngularFirestore){}
     private submissionForm!: AngularFirestoreCollection<any[]>
 
-  bookForm = new FormGroup({
-    booktitle: new FormControl('booktitle'),
+  ourForm = new FormGroup({
+    title: new FormControl('title'),
     edition: new FormControl('edition'),
     course: new FormControl('course'),
 
@@ -38,9 +38,9 @@ export class AddBooksComponent implements OnInit {
   ngOnInit(): void{
     // this.initializeForm();
     this.submissionForm=this.firestore.collection('items');
-    this.bookForm = this.fb.group({
+    this.ourForm = this.fb.group({
 
-    booktitle: [''],
+    title: [''],
     edition: [''],
     course: [''],
 
