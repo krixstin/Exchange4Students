@@ -1,17 +1,11 @@
-<form [formGroup]="bookForm" >
+<form [formGroup]="ourForm" >
     <br>            
     <div class="books-inputs">
         <h1>YOUR BOOK</h1>
-
-        <!-- <div class="input">
-            <label for="category" >Item Category</label>&nbsp;
-            <input readonly type="text" id='category' value="books" placeholder="Books"
-            formControlName="category">
-        </div> -->
         
         <div class="input">
-            <label for="booktitle">Book Title</label>&nbsp;
-            <input type="text" id='booktitle' formControlName="booktitle">
+            <label for="title">Title</label>&nbsp;
+            <input type="text" id='title' formControlName="title">
         </div>
 
         <div class="input">
@@ -53,5 +47,5 @@
             <input type="text" id='shipping' formControlName="shipping">&nbsp;
         </div>   
     </div> 
-      <input type="submit" value="Submit"  (click)="submitForm(bookForm.value)">
+      <input type="submit" value="Submit"  (click)="submitForm(ourForm.value)">
 </form>

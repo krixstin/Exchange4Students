@@ -34,21 +34,32 @@ export class AddSportsgearComponent implements OnInit {
     private submissionForm!: AngularFirestoreCollection<any[]>
     
   ourForm = new FormGroup({
-    title: new FormControl('title', Validators.required),
-    weight: new FormControl('weight', Validators.required ),
-    category: new FormControl('category', Validators.required),
 
-    description :new FormControl('description', Validators.required),
-    price: new FormControl('price', Validators.required),
-    sellerid: new FormControl('sellerid', Validators.required),
-    picture:new FormControl('picture', Validators.required),
-    shipping: new FormControl('shipping', Validators.required),
+//     title: new FormControl('title', Validators.required),
+//     weight: new FormControl('weight', Validators.required ),
+//     category: new FormControl('category', Validators.required),
+
+//     description :new FormControl('description', Validators.required),
+//     price: new FormControl('price', Validators.required),
+//     sellerid: new FormControl('sellerid', Validators.required),
+//     picture:new FormControl('picture', Validators.required),
+//     shipping: new FormControl('shipping', Validators.required),
+
+    title: new FormControl('title'),
+    weight: new FormControl('weight'),
+    category: new FormControl('category'),
+
+    description :new FormControl('description'),
+    price: new FormControl('price'),
+    sellerid: new FormControl('sellerid'),
+    picture:new FormControl('picture'),
+    shipping: new FormControl('shipping'),
 
   });  
 
   ngOnInit(): void{
     this.resetForm();
-    console.log('form is reset for you to fill out')
+    console.log('You can start the form')
   }
 
   showPreview(event:any){
@@ -64,6 +75,7 @@ export class AddSportsgearComponent implements OnInit {
       this.imgSrc= "../../../../assets/images/placeholder.png";
       this.selectedImage= null;
     }
+
   }
   //formvalue? value
   onSubmit(value: any ){
@@ -135,6 +147,18 @@ export class AddSportsgearComponent implements OnInit {
     this.isSubmitted=false;
 
   }
+
+  newId(): string {
+    // Alphanumeric characters
+    const chars =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let autoId = '';
+    for (let i = 0; i < 20; i++) {
+      autoId += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return autoId;
+  }
+
 }
 
 

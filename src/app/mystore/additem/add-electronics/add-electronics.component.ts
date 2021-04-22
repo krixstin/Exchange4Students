@@ -20,7 +20,7 @@ export class AddElectronicsComponent implements OnInit {
     private submissionForm!: AngularFirestoreCollection<any[]>
 
   ourForm = new FormGroup({
-    type: new FormControl('type'),
+    title: new FormControl('title'),
     model: new FormControl('model'),
 
     description :new FormControl('description'),
@@ -36,10 +36,10 @@ export class AddElectronicsComponent implements OnInit {
     this.submissionForm=this.firestore.collection('items');
     this.ourForm = this.fb.group({
 
-    type: [''],
+    title: [''],
     model: [''],
 
-    itemID:[''],
+    itemID:[this.newId()],
     description : ['' ],
     price: [''],
     sellerid: [''],
@@ -55,6 +55,17 @@ export class AddElectronicsComponent implements OnInit {
       console.log('item added!');
       }).catch(err=> console.log(err)
       );
+  }
+
+  newId(): string {
+    // Alphanumeric characters
+    const chars =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let autoId = '';
+    for (let i = 0; i < 20; i++) {
+      autoId += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return autoId;
   }
 
 }

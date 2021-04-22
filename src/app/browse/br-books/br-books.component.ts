@@ -10,7 +10,9 @@ import { Mock } from '../../MockBook';
   styleUrls: ['./br-books.component.css']
 })
 export class BrBooksComponent implements OnInit {
+  retrievedItems: item[];
   items: item[];
+
 
   constructor(public router: Router, 
              private ItemService: ItemService) { }
@@ -18,8 +20,26 @@ export class BrBooksComponent implements OnInit {
 
   getItems():void{
   	this.ItemService.getItems()
-  		.subscribe(items => this.items = items)
-//	console.log(this.items);
+  		.subscribe(items => this.retrievedItems = items)
+
+    var removedItems: number[] = [];
+
+    console.log(this.retrievedItems)
+    for (const index in this.retrievedItems){
+      var item:item = this.retrievedItems[index]
+        if (item.category !== "books"){
+          removedItems.push(parseInt(index))
+        }
+    }
+
+    this.items = [];
+    for (const index in this.retrievedItems){
+      if (!removedItems.includes(parseInt(index))){
+        this.items.push(this.retrievedItems[index])
+      }
+    }
+
+    console.log(this.items)
   }
  
   ngOnInit(): void {

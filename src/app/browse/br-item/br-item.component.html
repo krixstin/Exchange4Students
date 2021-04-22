@@ -1,7 +1,9 @@
 <div *ngIf="Item">
 	<!-- Create a 'display' for each category arranged as necessary -->
 	<!-- ## NOTE: Pictures are not implemented yet, but please leave room in final design for them. ## -->
-	<div *ngIf='Item.category === "book"'> 
+	<div *ngIf='Item.category === "books"'> 
+	<div class="itemDisplay" *ngIf='Item.category === "books"'> 
+		<img src={{Item.picture}}>
   		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
 		<p>Seller ID: {{Item.sellerid}}</p>
@@ -10,9 +12,20 @@
 		<p>Book Title: {{Item.booktitle}}</p>
 		<p>Edition: {{Item.edition}}</p>
 		<p>Course: {{Item.course}}</p> 
+		<div class="column">
+			<div class="row">
+				<a href="mailto:gonelli2113@gmail.com"><button>Contact Seller</button></a>
+			</div>
+			<div class="row">
+				<button>Add to Cart</button>
+			</div>
+		</div>
+	</div>
 	</div>
 	
-	<div *ngIf='Item.category === "sport"'>
+	<div *ngIf='Item.category === "sportsgear"'>
+	<div class="itemDisplay" *ngIf='Item.category === "sportsgear"'>
+		<!--<img scr="">-->
 		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
 		<p>Seller ID: {{Item.sellerid}}</p>
@@ -20,9 +33,22 @@
 		<p>Shipping: {{Item.shipping}}</p>
 		<p>Type: {{Item.type}}</p>
 		<p>Weight: {{Item.weight}}</p>
+		<div class="column">
+			<div class="row">
+				<a href="mailto:gonelli2113@gmail.com"><button>Contact Seller</button></a>
+			</div>
+			<div class="row">
+				<button>Add to Cart</button>
+			</div>
+		</div>
+	</div>
 	</div>
 	
-	<div *ngIf='Item.category === "electronic"'>
+
+	<div *ngIf='Item.category === "electronics"'>
+
+	<div class="itemDisplay" *ngIf='Item.category === "electronics"'>
+		<!--<img scr="">-->
 		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
 		<p>Seller ID: {{Item.sellerid}}</p>
@@ -30,9 +56,22 @@
 		<p>Shipping: {{Item.shipping}}</p>
 		<p>Type: {{Item.type}}</p>
 		<p>Model: {{Item.model}}</p>
+		<div class="column">
+			<div class="row">
+				<a href="mailto:gonelli2113@gmail.com"><button>Contact Seller</button></a>
+			</div>
+			<div class="row">
+				<button>Add to Cart</button>
+			</div>
+		</div>
+	</div>
 	</div>
 	
+
 	<div *ngIf='Item.category === "furniture"'>
+
+	<div class="itemDisplay" *ngIf='Item.category === "furniture"'>
+		<!--<img scr="">-->
 		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
 		<p>Seller ID: {{Item.sellerid}}</p>
@@ -41,9 +80,21 @@
 		<p>Color: {{Item.color}}</p>
 		<p>Weight: {{Item.weight}}</p>
 		<p>Dimensions: {{Item.dimension}}</p>
+		<div class="column">
+			<div class="row">
+				<a href="mailto:gonelli2113@gmail.com"><button>Contact Seller</button></a>
+			</div>
+			<div class="row">
+				<button>Add to Cart</button>
+			</div>
+		</div>
 	</div>
-
+	</div>
+   
 	<div *ngIf='Item.category === "clothing"'>
+   
+	<div class="itemDisplay" *ngIf='Item.category === "clothing"'>
+		<!--<img scr="">-->
 		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
 		<p>Seller ID: {{Item.sellerid}}</p>
@@ -52,6 +103,13 @@
 		<p>Type: {{Item.type}}</p>
 		<p>Color: {{Item.color}}</p>
 		<p>Size: {{Item.size}}</p>
+		<div class="column">
+			<div class="row">
+				<a href="mailto:gonelli2113@gmail.com"><button>Contact Seller</button></a>
+			</div>
+			<div class="row">
+				<button>Add to Cart</button>
+			</div>
+		</div>
 	</div>
-
-</div>
+	</div>

@@ -1,0 +1,31 @@
+.itemDisplay{
+	font-size: 30px;
+	background-color: #e7e3e3;
+	margin-top: 5px;
+	padding-right: 90px;
+	border-style: solid;
+	border-color: darkred;
+}
+
+.column{
+	display: flex;
+}
+
+.row{
+	flex:30%;
+	margin-left: 10%;
+}
+
+button{
+	color:white;
+	background-color: darkred;
+	width: 200px;
+	height: 40px;
+	font-size: 20px;
+	margin-left: 0%;
+	margin-bottom: 10%;
+}
+
+p{
+	padding: 10px 50px;
+}
