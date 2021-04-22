@@ -12,7 +12,7 @@ export class BrSportsgearComponent implements OnInit {
   constructor(public router: Router, private service:ImageService) { }
 
   ngOnInit(): void {
-    this.service.getImageDetailList()
+    this.service.getitemList()
   }
 
 }

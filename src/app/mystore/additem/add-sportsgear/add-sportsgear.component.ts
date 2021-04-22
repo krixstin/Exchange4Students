@@ -2,11 +2,13 @@ import { ngModuleJitUrl } from '@angular/compiler';
 import { ViewEncapsulation } from '@angular/core';
 import { Component, Injectable, OnInit } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFirestore, AngularFirestoreCollection, validateEventsArray } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {finalize}from "rxjs/operators"
+import { ImageService } from '../shared/image.service';
 // import {AngularFireDatabase, FirebaseObjectObservable} from 'angularfire2/database';
 
 @Component({
@@ -24,6 +26,9 @@ export class AddSportsgearComponent implements OnInit {
     private fb: FormBuilder, 
     private firestore: AngularFirestore,
     private storage: AngularFireStorage,
+    private service:ImageService,
+
+    private firebase:AngularFireDatabase
     ){}
 
     private submissionForm!: AngularFirestoreCollection<any[]>
@@ -69,15 +74,19 @@ export class AddSportsgearComponent implements OnInit {
           var filePath = `${this.selectedImage.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}` //avoid duplicate name by assigning time
           console.log("file path: ", filePath)
           const fileRef = this.storage.ref(filePath);
-          console.log("this is file path",filePath);
+          
           this.storage.upload(filePath, this.selectedImage.name).snapshotChanges().pipe(
             
             finalize(()=>{
               fileRef.getDownloadURL().subscribe((url)=>{
                 value['picture']=url;
                 console.log("value of picture is now url: ", url)
-                this.resetForm();
-                console.log("now, form is reset")
+                console.log("value:", value)
+                console.log(value['title'])
+                // this.service.insertItem(value);
+                this.insert(value);
+                // this.resetForm();
+                // console.log("now, form is reset")
               })
             })
           ).subscribe();
@@ -111,6 +120,25 @@ export class AddSportsgearComponent implements OnInit {
   get formControl(){
     return this.ourForm['controls']; //all the objects in formGroup
 
+  }
+  items!: AngularFireList<any>;
+  insert(value: any){
+    this.items = this.firebase.list('/items');
+    if(value){
+      this.items.push({
+      title:  value['title'],
+      weight: value['title'],
+
+      description : value['title'] ,
+      price: value['title'],
+      sellerid: value['title'],
+      category: 'sportsgear',
+      picture:value['picture'],
+      shipping: value['title']
+    })
+      
+    };
+    console.log("item succesfully added!")
   }
 
   resetForm(){
