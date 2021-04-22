@@ -8,11 +8,11 @@ export class ImageService{
     imageDetailList!: AngularFireList<any>;
 
     constructor(private firebase:AngularFireDatabase){}
-
-        getImageDetailList(){
-            this.imageDetailList= this.firebase.list('imageDetails');
-        }
     
+    // initialize
+    getImageDetailList(){
+        this.imageDetailList= this.firebase.list('items');
+    }
 
     insertImageDetails(imageDetails: any){
         this.imageDetailList.push(imageDetails);
