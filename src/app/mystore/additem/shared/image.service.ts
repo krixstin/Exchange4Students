@@ -14,8 +14,8 @@ export class ImageService{
         this.itemList= this.firebase.list('/items');
     }
 
-    insertItem(items: any){
-        this.itemList.push(items);
-    }
+    // insertItem(items: any){
+    //     this.itemList.push(items);
+    // }
 
 }

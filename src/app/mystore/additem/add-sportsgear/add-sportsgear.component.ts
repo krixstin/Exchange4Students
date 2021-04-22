@@ -66,9 +66,9 @@ export class AddSportsgearComponent implements OnInit {
     }
   }
   //formvalue? value
-  onSubmit(value: { [x: string]: any; valid: any; category: any; } ){
+  onSubmit(value: any ){
         this.isSubmitted=true;
-        console.log("is submitted now true")
+        // console.log("is submitted now true")
         if(value){
           //how to store image in firebase storage ${value.category}/
           var filePath = `${this.selectedImage.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}` //avoid duplicate name by assigning time
@@ -80,63 +80,39 @@ export class AddSportsgearComponent implements OnInit {
             finalize(()=>{
               fileRef.getDownloadURL().subscribe((url)=>{
                 value['picture']=url;
-                console.log("value of picture is now url: ", url)
-                console.log("value:", value)
-                console.log(value['title'])
-                // this.service.insertItem(value);
-                this.insert(value);
-                // this.resetForm();
-                // console.log("now, form is reset")
+
+                console.log("value of picture now set to: ", value['picture'])
+              
+                
+                this.insertItem(value);
+                this.resetForm();
+                console.log("Now, the form is RESET")
               })
             })
           ).subscribe();
         }
       }
-  // submitForm(value: any){
-  //   console.log(this.fb.control)
-  //   this.isSubmitted=true;
-  //  if(this.ourForm.valid){
-     
-  //    var filePath = `${this.selectedImage.name}_${new Date().getTime()})`
-  //    const fileRef = this.storage.ref(filePath);
-  //    console.log("this is file path",filePath);
-  //    this.storage.upload(filePath, this.selectedImage.name.spli('.').slice(0,-1).join('')).snapshotChanges().pipe(
-  //     finalize(()=>{
-  //       fileRef.getDownloadURL().subscribe((url)=>{
-  //         value['picture']=url;
-  //         this.resetForm;
-  //       })
-  //     })
-  //    ).subscribe();
-  //  }
-
-  
-    // this.submissionForm.add(value).then(res=>{
-    //   console.log('item added!');
-    //   }).catch(err=> console.log(err)
-    //   );
-  // }
 
   get formControl(){
     return this.ourForm['controls']; //all the objects in formGroup
 
   }
   items!: AngularFireList<any>;
-  insert(value: any){
+
+  insertItem(value: any){
     this.items = this.firebase.list('/items');
     if(value){
       this.items.push({
       title:  value['title'],
-      weight: value['title'],
+      weight: value['weight'],
 
-      description : value['title'] ,
-      price: value['title'],
-      sellerid: value['title'],
+      description : value['description'] ,
+      price: value['price'],
+      sellerid: value['sellerid'],
       category: 'sportsgear',
       picture:value['picture'],
-      shipping: value['title']
+      shipping: value['shipping']
     })
-      
     };
     console.log("item succesfully added!")
   }
@@ -154,7 +130,7 @@ export class AddSportsgearComponent implements OnInit {
       picture:'',
       shipping: ''
     });
-    this.imgSrc= "../../../../assets/images/CategorySportGear.jpg";
+    this.imgSrc= "../../../../assets/images/addphoto.png";
     this.selectedImage=null;
     this.isSubmitted=false;
 
