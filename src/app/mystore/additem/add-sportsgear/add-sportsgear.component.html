@@ -1,23 +1,25 @@
-<form [formGroup]="ourForm" (submit)="submitForm(ourForm.value)">
+<form [formGroup]="ourForm" (submit)="onSubmit(ourForm.value)">
     <br>            
     <div class="inputs">
         <h1>YOUR SPORT GEARS</h1>
         
-        <div class="input">
+        <!-- <div class="input">
             <label for="category">Category</label>&nbsp;
             <select formControlName="category"><
                 <option value="sportsgear">SportsGear</option>   
             </select>
-        </div>
+        </div> -->
 
         <div class="input">
-            <label for="type">Type</label>&nbsp;
-            <input type="text" id='type' formControlName="type">
+            <label for="title">Title</label>&nbsp;
+            <input type="text" id='title' formControlName="title">
+            <!-- <div class = "text-danger" *ngIf="isSubmitted && formControl.title.errors?.required">This field is required</div> -->
         </div>
 
         <div class="input">
             <label for="weight">Weight (lb)</label>&nbsp;
             <input type="number" id='weight' formControlName="weight">
+            <!-- <div class = "text-danger" *ngIf="isSubmitted && formControl.weight.errors?.required">This field is required</div> -->
         </div>
 
     </div>
@@ -28,29 +30,32 @@
         <div class="input">
             <label for="sellerid">Seller ID</label>&nbsp;
             <input type="text" id='sellerid' formControlName="sellerid">
+            <!-- <div class = "text-danger" *ngIf="isSubmitted && formControl.sellerid.errors?.required">This field is required</div> -->
         </div>
     
         <div class="input">
             <label for="description">Description</label>&nbsp;
             <textarea type="text" id='description' formControlName="description"></textarea>
+            <!-- <div class = "text-danger" *ngIf="isSubmitted && formControl.description.errors?.required">This field is required</div> -->
             
         </div>
         <div class="input">
             <label for="price">Price  $</label>&nbsp;
             <input type="number" id='price' formControlName="price">
+            <!-- <div class = "text-danger" *ngIf="isSubmitted && formControl.price.errors?.required">This field is required</div> -->
         </div>
     
         <div class="input">
             <img [src] = "imgSrc" width = "250 px" height = "150px" (click)="fileUploader.click()" > <br>
              <label for="picture">Picture</label>&nbsp;
             <input type="file" #fileUploader accept="image/*" formControlName="picture" id='picture' (change)="showPreview($event)">
-            <div class = "text-danger" *ngIf="isSubmitted && formControl.picture.errors?.required">This field is required</div>
+            <!-- <div class = "text-danger" *ngIf="isSubmitted && formControl.picture.errors?.required">This field is required</div> -->
         </div>   
     
         <div class="input">
             <label for="shipping">Shipping</label>&nbsp;
             <input type="text" id='shipping' formControlName="shipping">&nbsp;
-            <div class = "text-danger" *ngIf="isSubmitted && formControl.shipping.errors?.required">This field is required</div>
+            <!-- <div class = "text-danger" *ngIf="isSubmitted && formControl.shipping.errors?.required">This field is required</div> -->
         </div>   
     </div> 
       <input type="submit" value="Submit"  >
