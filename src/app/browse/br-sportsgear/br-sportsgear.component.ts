@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { ImageService } from 'src/app/mystore/additem/shared/image.service';
+
 import { item } from '../../Item';
 import { ItemService } from '../../item.service';
 import { Mock } from '../../MockBook';
+
 
 @Component({
   selector: 'app-br-sportsgear',
@@ -13,9 +17,9 @@ export class BrSportsgearComponent implements OnInit {
   retrievedItems: item[];
   items: item[];
 
-
   constructor(public router: Router, 
-             private ItemService: ItemService) { }
+             private ItemService: ItemService,
+             private service:ImageService) { }
 
 
   getItems():void{
@@ -42,7 +46,10 @@ export class BrSportsgearComponent implements OnInit {
   }
  
   ngOnInit(): void {
+
+    this.service.getImageDetailList()
   	this.getItems();
+
   }
 
 }
