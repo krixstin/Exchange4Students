@@ -12,29 +12,28 @@ import { Mock } from '../../MockBook';
 export class BrFurnitureComponent implements OnInit {
   retrievedItems: item[];
   items: item[];
-
+  category: "furniture";
 
   constructor(public router: Router, 
-             private ItemService: ItemService) { }
+             public ItemService: ItemService) { }
 
 
-  getItems():void{
-    this.retrievedItems = this.ItemService.getItems()
+  getItems(retrievedItems:item[]):void{
 
     var removedItems: number[] = [];
 
-    console.log(this.retrievedItems)
-    for (const index in this.retrievedItems){
-      var item:item = this.retrievedItems[index]
-        if (item.category !== "furniture"){
+    console.log(retrievedItems)
+    for (const index in retrievedItems){
+      var item:item = retrievedItems[index]
+        if (item.category !== this.category){
           removedItems.push(parseInt(index))
         }
     }
 
     this.items = [];
-    for (const index in this.retrievedItems){
+    for (const index in retrievedItems){
       if (!removedItems.includes(parseInt(index))){
-        this.items.push(this.retrievedItems[index])
+        this.items.push(retrievedItems[index])
       }
     }
 
@@ -42,7 +41,7 @@ export class BrFurnitureComponent implements OnInit {
   }
  
   ngOnInit(): void {
-  	this.getItems();
+    this.ItemService.getItems().subscribe((Items) => this.getItems(Items))
   }
 
 }

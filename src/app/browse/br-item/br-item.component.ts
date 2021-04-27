@@ -26,41 +26,40 @@ export class BrItemComponent implements OnInit {
   Item: itemBook | itemSport | itemFurniture | itemElectronic | itemClothing 
   
   constructor(
-  	private route: ActivatedRoute,
-  	private itemService: ItemService,
-  	private location: Location
-  	) { }
+    private route: ActivatedRoute,
+    private itemService: ItemService,
+    private location: Location
+    ) { }
 
   ngOnInit(): void {
-  	this.getItem();
+    this.getItem();
   }
 
   getItem():void{
-  	const itemid = String(this.route.snapshot.paramMap.get('itemid'));
-  	this.retrievedItem = this.itemService.getItem(itemid);
-  	console.log("get Before:")
-  	console.log(this.retrievedItem)
-  	this.setCategory(this.retrievedItem);
-  	console.log("get After:")
-  	console.log(this.Item)
+    const itemid = String(this.route.snapshot.paramMap.get('itemid'));
+    this.itemService.getItem(itemid).subscribe((Item) => {
+      if (Item){
+        this.setCategory(Item)
+      }
+    });
   }
 
-  setCategory(Item: item):void	{
-  	if (Item.category == "books"){
-  		this.Item = Item as itemBook;
-  	}
-  	if (Item.category == "sportsgear"){
-  		this.Item = Item as itemSport;
-  	}
-  	if (Item.category == "clothing"){
-  		this.Item = Item as itemClothing;
-  	}
-  	if (Item.category == "electronics"){
-  		this.Item = Item as itemElectronic;
-  	}
-  	if (Item.category == "furniture"){
-  		this.Item = Item as itemFurniture;
-  	}
+  setCategory(Item: item):void  {
+    if (Item.category == "books"){
+      this.Item = Item as itemBook;
+    }
+    if (Item.category == "sportsgear"){
+      this.Item = Item as itemSport;
+    }
+    if (Item.category == "clothing"){
+      this.Item = Item as itemClothing;
+    }
+    if (Item.category == "electronics"){
+      this.Item = Item as itemElectronic;
+    }
+    if (Item.category == "furniture"){
+      this.Item = Item as itemFurniture;
+    }
   }
 
 }

@@ -16,29 +16,29 @@ import { Mock } from '../../MockBook';
 export class BrSportsgearComponent implements OnInit {
   retrievedItems: item[];
   items: item[];
+  category = 'sportsgear'
 
   constructor(public router: Router, 
              private ItemService: ItemService,
              private service:ImageService) { }
 
 
-  getItems():void{
-    this.retrievedItems = this.ItemService.getItems()
+  getItems(retrievedItems:item[]):void{
 
     var removedItems: number[] = [];
 
-    console.log(this.retrievedItems)
-    for (const index in this.retrievedItems){
-      var item:item = this.retrievedItems[index]
-        if (item.category !== "sportsgear"){
+    console.log(retrievedItems)
+    for (const index in retrievedItems){
+      var item:item = retrievedItems[index]
+        if (item.category !== this.category){
           removedItems.push(parseInt(index))
         }
     }
 
     this.items = [];
-    for (const index in this.retrievedItems){
+    for (const index in retrievedItems){
       if (!removedItems.includes(parseInt(index))){
-        this.items.push(this.retrievedItems[index])
+        this.items.push(retrievedItems[index])
       }
     }
 
@@ -48,8 +48,7 @@ export class BrSportsgearComponent implements OnInit {
   ngOnInit(): void {
 
     this.service.getImageDetailList()
-  	this.getItems();
-
+    this.ItemService.getItems().subscribe((Items) => this.getItems(Items))
   }
 
 }
