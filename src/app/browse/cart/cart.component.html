@@ -1,25 +1,18 @@
-<div *ngIf="Item">
+<div class="title">
+    <h2>Summary of your Cart</h2>
+</div>
+
+
+<div *ngFor="let Item of items">
 	<!-- Create a 'display' for each category arranged as necessary -->
 	<!-- ## NOTE: Pictures are not implemented yet, but please leave room in final design for them. ## -->
 	<div *ngIf='Item.category === "books"'> 
 	<div class="itemDisplay" *ngIf='Item.category === "books"'> 
 		<img src={{Item.picture}}>
-  		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
 		<p>Seller ID: {{Item.sellerid}}</p>
 		<p>Category: {{Item.category}}</p>
 		<p>Shipping: {{Item.shipping}}</p>
-		<p>Book Title: {{Item.booktitle}}</p>
-		<p>Edition: {{Item.edition}}</p>
-		<p>Course: {{Item.course}}</p> 
-		<div class="column">
-			<div class="row">
-				<a href="mailto:gonelli2113@gmail.com" ><button style="cursor: grab;">Contact Seller</button></a>
-			</div>
-			<div class="row">
-				<button (click)="addToCart(Item)" style="cursor: grab">Add to Cart</button>
-			</div>
-		</div>
 	</div>
 	</div>
 	
@@ -33,14 +26,6 @@
 		<p>Shipping: {{Item.shipping}}</p>
 		<p>Type: {{Item.type}}</p>
 		<p>Weight: {{Item.weight}}</p>
-		<div class="column">
-			<div class="row">
-				<a href="mailto:gonelli2113@gmail.com"><button>Contact Seller</button></a>
-			</div>
-			<div class="row">
-				<button>Add to Cart</button>
-			</div>
-		</div>
 	</div>
 	</div>
 	
@@ -113,3 +98,10 @@
 		</div>
 	</div>
 	</div>
+</div>
+
+<!-- <a routerLink="/cart" class="button fancy-button">
+    <i class="material-icons">shopping_cart</i>Checkout
+</a> -->
+<br><br>
+<button>Checkout</button>

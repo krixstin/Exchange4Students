@@ -18,6 +18,7 @@ import { AddSportsgearComponent } from './mystore/additem/add-sportsgear/add-spo
 import { AddClothingComponent } from './mystore/additem/add-clothing/add-clothing.component';
 import { AddElectronicsComponent } from './mystore/additem/add-electronics/add-electronics.component';
 import { AddFurnitureComponent } from './mystore/additem/add-furniture/add-furniture.component';
+import { CartComponent } from './browse/cart/cart.component';
 
 const routes: Routes = [
 
@@ -36,13 +37,20 @@ const routes: Routes = [
 
   { path: 'mystore', component: MystoreComponent },
   { path: 'additem', component: AdditemComponent },
+
+  { path: 'browse/cart', component: CartComponent },
   
+  { path: '', component: BrItemComponent },
+
+  { path: 'cart', component: CartComponent },
+
   { path: 'add-books', component: AddBooksComponent },
   { path: 'add-clothing', component: AddClothingComponent },
   { path: 'add-electronics', component: AddElectronicsComponent },
   { path: 'add-furniture', component: AddFurnitureComponent },
   { path: 'add-sportsgear', component: AddSportsgearComponent },
 
+  
   // otherwise redirect to home
   // { path: '**', redirectTo: '' }
 ];
