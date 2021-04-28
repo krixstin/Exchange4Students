@@ -14,8 +14,8 @@ import { Mock } from '../../MockBook';
   styleUrls: ['./br-sportsgear.component.css']
 })
 export class BrSportsgearComponent implements OnInit {
-  retrievedItems: item[];
-  items: item[];
+  retrievedItems: item[] = [];
+  items: item[] = [];
   category = 'sportsgear'
 
   constructor(public router: Router, 
@@ -47,12 +47,10 @@ export class BrSportsgearComponent implements OnInit {
  
   ngOnInit(): void {
     
-    this.service.getImageDetailList()
+    // this.service.getImageDetailList()
     this.ItemService.getItems().subscribe((Items) => this.getItems(Items))
-//     this.service.getitemList()
-//     this.service.getImageDetailList()
     
-  	this.getItems();
+  	// this.getItems();
     
   }
 }
