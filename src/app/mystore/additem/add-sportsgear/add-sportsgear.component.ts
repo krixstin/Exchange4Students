@@ -2,11 +2,13 @@ import { ngModuleJitUrl } from '@angular/compiler';
 import { ViewEncapsulation } from '@angular/core';
 import { Component, Injectable, OnInit } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFirestore, AngularFirestoreCollection, validateEventsArray } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {finalize}from "rxjs/operators"
+import { ImageService } from '../shared/image.service';
 // import {AngularFireDatabase, FirebaseObjectObservable} from 'angularfire2/database';
 
 @Component({
@@ -24,11 +26,25 @@ export class AddSportsgearComponent implements OnInit {
     private fb: FormBuilder, 
     private firestore: AngularFirestore,
     private storage: AngularFireStorage,
+    private service:ImageService,
+
+    private firebase:AngularFireDatabase
     ){}
 
     private submissionForm!: AngularFirestoreCollection<any[]>
     
   ourForm = new FormGroup({
+
+//     title: new FormControl('title', Validators.required),
+//     weight: new FormControl('weight', Validators.required ),
+//     category: new FormControl('category', Validators.required),
+
+//     description :new FormControl('description', Validators.required),
+//     price: new FormControl('price', Validators.required),
+//     sellerid: new FormControl('sellerid', Validators.required),
+//     picture:new FormControl('picture', Validators.required),
+//     shipping: new FormControl('shipping', Validators.required),
+
     title: new FormControl('title'),
     weight: new FormControl('weight'),
     category: new FormControl('category'),
@@ -43,23 +59,7 @@ export class AddSportsgearComponent implements OnInit {
 
   ngOnInit(): void{
     this.resetForm();
-
-    // this.initializeForm();
-
-    // this.submissionForm=this.firestore.collection('items');
-    // this.ourForm = this.fb.group({
-
-    // type: [''],
-    // weight: [''],
-
-    // itemID:[''],
-    // description : ['' ],
-    // price: [''],
-    // sellerid: [''],
-    // category: ['sportsgear'],
-    // picture:[''],
-    // shipping: ['']
-    // });
+    console.log('You can start the form')
   }
 
   showPreview(event:any){
@@ -72,38 +72,61 @@ export class AddSportsgearComponent implements OnInit {
       this.selectedImage = event.target.files[0];
     }
     else {
-      this.imgSrc= "../../../../assets/images/CategorySportGear.jpg";
+      this.imgSrc= "../../../../assets/images/placeholder.png";
       this.selectedImage= null;
     }
 
   }
+  //formvalue? value
+  onSubmit(value: any ){
+        this.isSubmitted=true;
+        // console.log("is submitted now true")
+        if(value){
+          //how to store image in firebase storage ${value.category}/
+          var filePath = `${this.selectedImage.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}` //avoid duplicate name by assigning time
+          console.log("file path: ", filePath)
+          const fileRef = this.storage.ref(filePath);
+          
+          this.storage.upload(filePath, this.selectedImage.name).snapshotChanges().pipe(
+            
+            finalize(()=>{
+              fileRef.getDownloadURL().subscribe((url)=>{
+                value['picture']=url;
 
-  submitForm(value: any){
-    console.log(this.fb.control)
-    this.isSubmitted=true;
-   if(this.ourForm.valid){
-     
-     var filePath = `${this.selectedImage.name}_${new Date().getTime()})`
-     const fileRef = this.storage.ref(filePath);
-     console.log("this is file path",filePath);
-     this.storage.upload(filePath, this.selectedImage.name.spli('.').slice(0,-1).join('')).snapshotChanges().pipe(
-      finalize(()=>{
-        fileRef.getDownloadURL().subscribe((url)=>{
-          value['picture']=url;
-          this.resetForm;
-        })
-      })
-     ).subscribe();
-   }
-    // this.submissionForm.add(value).then(res=>{
-    //   console.log('item added!');
-    //   }).catch(err=> console.log(err)
-    //   );
+                console.log("value of picture now set to: ", value['picture'])
+              
+                
+                this.insertItem(value);
+                this.resetForm();
+                console.log("Now, the form is RESET")
+              })
+            })
+          ).subscribe();
+        }
+      }
+
+  get formControl(){
+    return this.ourForm['controls']; //all the objects in formGroup
+
   }
+  items!: AngularFireList<any>;
 
-get formControl(){
-    return this.ourForm['controls'];
+  insertItem(value: any){
+    this.items = this.firebase.list('/items');
+    if(value){
+      this.items.push({
+      title:  value['title'],
+      weight: value['weight'],
 
+      description : value['description'] ,
+      price: value['price'],
+      sellerid: value['sellerid'],
+      category: 'sportsgear',
+      picture:value['picture'],
+      shipping: value['shipping']
+    })
+    };
+    console.log("item succesfully added!")
   }
 
   resetForm(){
@@ -119,7 +142,7 @@ get formControl(){
       picture:'',
       shipping: ''
     });
-    this.imgSrc= "../../../../assets/images/CategorySportGear.jpg";
+    this.imgSrc= "../../../../assets/images/addphoto.png";
     this.selectedImage=null;
     this.isSubmitted=false;
 

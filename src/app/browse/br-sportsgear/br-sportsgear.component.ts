@@ -46,9 +46,13 @@ export class BrSportsgearComponent implements OnInit {
   }
  
   ngOnInit(): void {
-
+    
     this.service.getImageDetailList()
     this.ItemService.getItems().subscribe((Items) => this.getItems(Items))
+//     this.service.getitemList()
+//     this.service.getImageDetailList()
+    
+  	this.getItems();
+    
   }
-
 }
