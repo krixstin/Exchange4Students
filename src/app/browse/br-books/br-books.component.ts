@@ -19,6 +19,7 @@ export class BrBooksComponent implements OnInit {
 
 
   getItems(retrievedItems:item[]):void{
+
     var removedItems: number[] = [];
 
     console.log(retrievedItems)
@@ -40,9 +41,30 @@ export class BrBooksComponent implements OnInit {
 
     console.log(this.items)
   }
+
+  initializeKeywordBar():HTMLInputElement{
+    var router = this.router
+    var keywordBar = <HTMLInputElement>document.getElementById('keyword')
+
+    keywordBar.addEventListener("keyup",function(event){
+      if (event.keyCode == 13){
+        event.preventDefault();
+        router.navigate(['br-keyword/',keywordBar.value])
+        
+      }
+    })
+    console.log("Keyword Bar Initialized")
+    return keywordBar
+  }
  
   ngOnInit(): void {
-    this.ItemService.getItems().subscribe((Items) => this.getItems(Items))
+    var keywordBar = this.initializeKeywordBar()
+
+    this.ItemService.getItems().subscribe((Items) => {
+      this.getItems(Items)
+    })
   }
+
+
 
 }
