@@ -7,6 +7,7 @@ import { BrFurnitureComponent } from './browse/br-furniture/br-furniture.compone
 import { BrSportsgearComponent } from './browse/br-sportsgear/br-sportsgear.component';
 import { BrowseComponent } from './browse/browse.component';
 import { BrItemComponent } from './browse/br-item/br-item.component';
+import { BrKeywordComponent } from './browse/br-keyword/br-keyword.component';
 
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
@@ -32,6 +33,8 @@ const routes: Routes = [
   { path: 'br-furniture', component: BrFurnitureComponent },
   { path: 'br-electronics', component: BrElectronicsComponent },
   { path: 'br-sportsgear', component: BrSportsgearComponent },
+
+  { path: 'br-keyword/:keyword', component: BrKeywordComponent},
   
   { path: 'br-item/:itemid', component: BrItemComponent },
 

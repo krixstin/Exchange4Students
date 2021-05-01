@@ -35,6 +35,8 @@ import { AddElectronicsComponent } from './mystore/additem/add-electronics/add-e
 import { AddFurnitureComponent } from './mystore/additem/add-furniture/add-furniture.component';
 import { AddSportsgearComponent } from './mystore/additem/add-sportsgear/add-sportsgear.component';
 import { CartComponent } from './browse/cart/cart.component';
+import { BrKeywordComponent } from './browse/br-keyword/br-keyword.component';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 
 
@@ -72,6 +74,8 @@ const firebaseConfig = {
     AddFurnitureComponent,
     AddSportsgearComponent,
     CartComponent,
+    BrKeywordComponent,
+    SearchbarComponent,
     
 
   ],

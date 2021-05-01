@@ -10,7 +10,7 @@ import {itemFurniture} from './ItemFurniture';
     const mockBook: itemBook = {
         //passing objects ( array of obtions)
         // [] for more than one Valliators
-        booktitle: 'Temp booktitle',
+        title: 'Temp booktitle',
         itemID: '01',
         description: 'Temp descrip',
         edition: 101,
@@ -24,7 +24,7 @@ import {itemFurniture} from './ItemFurniture';
     const mockBook2: itemBook = {
         //passing objects ( array of obtions)
         // [] for more than one Valliators
-        booktitle: 'Temp2 booktitle',
+        title: 'Temp2 booktitle',
         itemID: '02',
         description: 'Temp2 descrip',
         edition: 201,
@@ -38,7 +38,7 @@ import {itemFurniture} from './ItemFurniture';
     const mockBook3: itemBook = {
         //passing objects ( array of obtions)
         // [] for more than one Valliators
-        booktitle: 'Temp3 booktitle',
+        title: 'Temp3 booktitle',
         itemID: '03',
         description: 'Temp3 descrip',
         edition: 301,
@@ -52,7 +52,7 @@ import {itemFurniture} from './ItemFurniture';
     const mockBook4: itemBook = {
         //passing objects ( array of obtions)
         // [] for more than one Valliators
-        booktitle: 'Temp4 booktitle',
+        title: 'Temp4 booktitle',
         itemID: '04',
         description: 'Temp4 descrip',
         edition: 401,
@@ -66,7 +66,7 @@ import {itemFurniture} from './ItemFurniture';
     const mockBook5: itemBook = {
         //passing objects ( array of obtions)
         // [] for more than one Valliators
-        booktitle: 'Temp5 booktitle',
+        title: 'Temp5 booktitle',
         itemID: '05',
         description: 'Temp5 descrip',
         edition: 501,
@@ -84,7 +84,7 @@ import {itemFurniture} from './ItemFurniture';
         sellerid: 'Temp3 sellerid',
         category: 'sportsgear',
         shipping: 'Temp3 shipping',
-        type: 'Temp3 type',
+        title: 'Temp3 type',
         weight: 302
     }
     const mockElectronic: itemElectronic = {
@@ -94,7 +94,7 @@ import {itemFurniture} from './ItemFurniture';
         sellerid: 'Temp4 sellerid',
         category: 'electronics',
         shipping: 'Temp4 shipping',
-        type: 'Temp4 type',
+        title: 'Temp4 type',
         model: 'Temp4 model',
         
     }
@@ -105,7 +105,7 @@ import {itemFurniture} from './ItemFurniture';
         sellerid: 'Temp5 sellerid',
         category: 'furniture',
         shipping: 'Temp5 shipping',
-        type: 'Temp5 type',
+        title: 'Temp5 type',
         weight: 501,
         color: 'Temp5 color',
         dimension: '5 dim',
@@ -118,7 +118,7 @@ import {itemFurniture} from './ItemFurniture';
         sellerid: 'Temp6 sellerid',
         category: 'clothing',
         shipping: 'Temp6 shipping',
-        type: 'Temp6 type',
+        title: 'Temp6 type',
         size: 'Temp6 size',
         color: 'Temp6 color'
     }

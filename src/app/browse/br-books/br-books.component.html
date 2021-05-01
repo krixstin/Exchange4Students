@@ -9,7 +9,7 @@
 <div class="banner">
 	<div class="browse-keyword">
 	    <h1>Search By Keyword: </h1>
-	    <input type="text" id='keyword'>
+	    <app-searchbar></app-searchbar>
 	</div> 
 
 
@@ -49,7 +49,6 @@
    
 <br>
 <div class="items">
-	<!-- NOTE: Current implementation displays all items in a straight vertical line. HTML may require updating. -->
 	<div class="oneItem" *ngFor = 'let item of items'>
 		<div class="colorBox" >
 			<img src="../../assets/images/ImageBackground.JPG" width="200px">
@@ -59,7 +58,6 @@
 		</div>
 	</div>
 </div>
-   
 <!-- >>>>>>> main -->
 </body>
 </html>

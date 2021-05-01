@@ -1,14 +1,13 @@
-
+<!-- <<<<<<< Categories-general-layout -->
 <div class="banner">
 	<div class="browse-keyword">
-	    <h1>Search By Keyword</h1>
-	    <app-searchbar></app-searchbar>
+	    <h1>Search By Keyword: </h1>
+			<app-searchbar></app-searchbar>
 	</div> 
 
-	<br><br>
 
 	<div class="browse-category">
-	    <h1>Browse by Category</h1>
+	    <h1>Browse by Category: </h1>
 	    <div class="containers">
 
 	        <div class="container" (click) ="router.navigate(['./br-books']);">
@@ -34,17 +33,20 @@
 	</div>
 </div>
 
+
+<br>
+   
 <div class="searchLine">
 	<p>These are our current selections based on your search</p>	
 </div>
-
+   
 <br>
 <div class="items">
 	<div class="oneItem" *ngFor = 'let item of items'>
 		<div class="colorBox" >
 			<img src="../../assets/images/ImageBackground.JPG" width="200px">
 				<a routerLink= "/br-item/{{item.itemID}}">
-   				<span>{{item.itemID}}</span> {{item.description}}
+   				{{item.description}}
    				</a>	
 		</div>
 	</div>

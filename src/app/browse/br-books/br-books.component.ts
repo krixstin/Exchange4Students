@@ -19,6 +19,7 @@ export class BrBooksComponent implements OnInit {
 
 
   getItems(retrievedItems:item[]):void{
+
     var removedItems: number[] = [];
 
     console.log(retrievedItems)
@@ -42,7 +43,11 @@ export class BrBooksComponent implements OnInit {
   }
  
   ngOnInit(): void {
-    this.ItemService.getItems().subscribe((Items) => this.getItems(Items))
+    this.ItemService.getItems().subscribe((Items) => {
+      this.getItems(Items)
+    })
   }
+
+
 
 }
