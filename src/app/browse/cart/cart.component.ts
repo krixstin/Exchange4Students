@@ -35,4 +35,12 @@ export class CartComponent implements OnInit {
     this.items = this.cartService.getItems()
   }
 
+  getTotal(){
+    var total = 0;
+    for(var i = 0; i < this.items.length; i++){
+        var product = this.items[i];
+        total += (product.price);
+    }
+    return total;
+}
 }
