@@ -103,7 +103,7 @@ export class AddSportsgearComponent implements OnInit {
 
   insertItem(value: any){
     this.items = this.firebase.list('/items');
-    
+
     if(value){
       this.items.push({
       title:  value['title'],
@@ -121,6 +121,8 @@ export class AddSportsgearComponent implements OnInit {
   }
 
   resetForm(){
+
+    
     this.ourForm.reset();
     this.ourForm.setValue({
       title: '',

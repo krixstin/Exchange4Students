@@ -50,7 +50,7 @@ export class AddBooksComponent implements OnInit {
     sellerid: [''],
     category: ['books'],
     picture:[''],
-    shipping: ['']
+    shipping: [''],
     });
   }
 
