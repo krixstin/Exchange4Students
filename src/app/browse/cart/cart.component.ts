@@ -26,4 +26,13 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  clearCart() {
+  	console.log(this.cartService.getItems())
+    console.log("successfully checked out")
+    this.cartService.clearCart();
+    console.log(this.cartService.getItems())
+    window.alert('Your purchase was a success!');
+    this.items = this.cartService.getItems()
+  }
+
 }
