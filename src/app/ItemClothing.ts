@@ -14,7 +14,6 @@ import {item} from './Item';
 */
 
 export interface itemClothing extends item{
-    type: string,
     color: string,
     size: string,
 }

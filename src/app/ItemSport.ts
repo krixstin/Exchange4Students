@@ -14,6 +14,5 @@ import {item} from './Item';
 */
 
 export interface itemSport extends item{
-    type: string,
     weight: number,
 }

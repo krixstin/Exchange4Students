@@ -14,7 +14,6 @@ import {item} from './Item';
 */
 
 export interface itemFurniture extends item{
-    type: string,
     color: string,
     weight: number,
     dimension: string,

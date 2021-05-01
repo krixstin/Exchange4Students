@@ -27,7 +27,7 @@ export class BrKeywordComponent implements OnInit {
     for (const index in retrievedItems){
       var item:item = retrievedItems[index]
 //        console.log(item)
-        if (this.keywords.every(keyword => this.keywordCheck(keyword,item))){
+        if (this.keywordCheck(this.keywords,item)){
           acceptedItems.push(parseInt(index))
         }
     }
@@ -43,11 +43,29 @@ export class BrKeywordComponent implements OnInit {
 //    console.log(this.items)
   }
  
-  keywordCheck(keyword:string,item:item):boolean{
-  	if (item.description.toLowerCase().includes(keyword)){
-  		return true
-  	}
-  	return false
+  keywordCheck(keyword:string[],item:item):boolean{
+  	
+    var descriptCheck = this.keywords.every(keyword => {
+      if (item.description.toLowerCase().includes(keyword)){
+        return true
+      }
+        return false  
+    })
+
+    var titleCheck = this.keywords.some(keyword => {
+//    "Sanity check, some database objects aren't updated to use title."
+      if (item.title == undefined){
+        return false
+      }
+      
+      if (item.title.toLowerCase().includes(keyword)){
+        return true
+      }
+        return false  
+    })
+
+    return descriptCheck || titleCheck
+    
   }
 
   ngOnInit(): void {
