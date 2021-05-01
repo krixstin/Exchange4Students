@@ -34,7 +34,7 @@ export class BrKeywordComponent implements OnInit {
 //    console.log(acceptedItems)
 
     this.items = [];
-    for (const index in retrievedItems){
+	for (const index in retrievedItems){
       if (acceptedItems.includes(parseInt(index))){
         this.items.push(retrievedItems[index])
       }
@@ -50,31 +50,10 @@ export class BrKeywordComponent implements OnInit {
   	return false
   }
 
-  initializeKeywordBar():HTMLInputElement{
-  	var router = this.router
-  	var keywordBar = <HTMLInputElement>document.getElementById('keyword')
-
-  	keywordBar.addEventListener("keyup",function(event){
-  		if (event.keyCode == 13){
-  			event.preventDefault();
-  			router.navigate(['br-keyword/',keywordBar.value])
-  			
-  		}
-  	})
-	console.log("Keyword Bar Initialized")
-  	return keywordBar
-  }
-  
-  navigate(){
-
-  }
-
   ngOnInit(): void {
-	var keywordBar = this.initializeKeywordBar()
 
 	this.route.params.subscribe(routeParam => {
 		var keyword = routeParam.keyword
-		keywordBar.value = routeParam.keyword
 
 		keyword = keyword.toLowerCase();
 		if (keyword.includes(" ")) { this.keywords = keyword.split(" ") }

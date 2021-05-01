@@ -26,10 +26,10 @@
 }
 
 
-input[type=text] {
+#keyword{
     padding:5px 15px; 
     width: 150px;
-    margin-left: 10px;
+    margin-left: 3px;
     background-color:#e7e3e3; 
     font-size: 20px;
     color: rgb(0, 0, 0);
