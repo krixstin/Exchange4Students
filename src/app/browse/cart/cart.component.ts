@@ -43,5 +43,4 @@ export class CartComponent implements OnInit {
     }
     return total;
 }
-
 }
