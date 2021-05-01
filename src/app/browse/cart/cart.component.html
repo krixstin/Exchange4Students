@@ -42,12 +42,6 @@
 		<p>Type: {{Item.type}}</p>
 		<p>Model: {{Item.model}}</p>
 		<div class="column">
-			<div class="row">
-				<a href="mailto:gonelli2113@gmail.com"><button>Contact Seller</button></a>
-			</div>
-			<div class="row">
-				<button>Add to Cart</button>
-			</div>
 		</div>
 	</div>
 	</div>
@@ -66,12 +60,6 @@
 		<p>Weight: {{Item.weight}}</p>
 		<p>Dimensions: {{Item.dimension}}</p>
 		<div class="column">
-			<div class="row">
-				<a href="mailto:gonelli2113@gmail.com"><button>Contact Seller</button></a>
-			</div>
-			<div class="row">
-				<button>Add to Cart</button>
-			</div>
 		</div>
 	</div>
 	</div>
@@ -89,12 +77,6 @@
 		<p>Color: {{Item.color}}</p>
 		<p>Size: {{Item.size}}</p>
 		<div class="column">
-			<div class="row">
-				<a href="mailto:gonelli2113@gmail.com"><button>Contact Seller</button></a>
-			</div>
-			<div class="row">
-				<button>Add to Cart</button>
-			</div>
 		</div>
 	</div>
 	</div>
@@ -104,4 +86,7 @@
     <i class="material-icons">shopping_cart</i>Checkout
 </a> -->
 <br><br>
-<button>Checkout</button>
+<h1>Your Total: {{getTotal()}}</h1>
+<br><br>
+<button (click)="clearCart()" style="cursor: grab">Checkout</button>
+
