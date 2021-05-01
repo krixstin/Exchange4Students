@@ -59,3 +59,6 @@ input[type=submit] {
 .placeholder {
     cursor: pointer;
 }
+.text-danger{
+    color: red;
+}

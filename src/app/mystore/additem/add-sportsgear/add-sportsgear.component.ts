@@ -35,25 +35,15 @@ export class AddSportsgearComponent implements OnInit {
     
   ourForm = new FormGroup({
 
-//     title: new FormControl('title', Validators.required),
-//     weight: new FormControl('weight', Validators.required ),
-//     category: new FormControl('category', Validators.required),
+    title: new FormControl('title', Validators.required),
+    weight: new FormControl('weight', Validators.required),
+    category: new FormControl('category', Validators.required),
 
-//     description :new FormControl('description', Validators.required),
-//     price: new FormControl('price', Validators.required),
-//     sellerid: new FormControl('sellerid', Validators.required),
-//     picture:new FormControl('picture', Validators.required),
-//     shipping: new FormControl('shipping', Validators.required),
-
-    title: new FormControl('title'),
-    weight: new FormControl('weight'),
-    category: new FormControl('category'),
-
-    description :new FormControl('description'),
-    price: new FormControl('price'),
-    sellerid: new FormControl('sellerid'),
-    picture:new FormControl('picture'),
-    shipping: new FormControl('shipping'),
+    description :new FormControl('description', Validators.required),
+    price: new FormControl('price', Validators.required),
+    sellerid: new FormControl('sellerid', Validators.required),
+    picture:new FormControl('picture', Validators.required),
+    shipping: new FormControl('shipping', Validators.required),
 
   });  
 
@@ -113,6 +103,7 @@ export class AddSportsgearComponent implements OnInit {
 
   insertItem(value: any){
     this.items = this.firebase.list('/items');
+    
     if(value){
       this.items.push({
       title:  value['title'],

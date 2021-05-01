@@ -1,6 +1,6 @@
-<form [formGroup]="ourForm" >
+<form [formGroup]="ourForm" (submit)="onSubmit(ourForm.value)" >
     <br>            
-    <div class="books-inputs">
+    <div class="inputs">
         <h1>YOUR BOOK</h1>
         
         <div class="input">
@@ -15,7 +15,7 @@
 
         <div class="input">
             <label for="course">Course</label>&nbsp;
-            <input type="text" id='edition' formControlName="course">
+            <input type="text" id='course' formControlName="course">
         </div>
     </div>
     
