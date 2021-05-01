@@ -123,7 +123,8 @@ export class AddSportsgearComponent implements OnInit {
       sellerid: value['sellerid'],
       category: 'sportsgear',
       picture:value['picture'],
-      shipping: value['shipping']
+      shipping: value['shipping'],
+      itemID: this.newId()
     })
     };
     console.log("item succesfully added!")
