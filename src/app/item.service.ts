@@ -42,6 +42,13 @@ export class ItemService {
   getItem(itemID: string): Observable<item|undefined>{
     // Currently reads from Mock Item list
     // TODO: Replace Mock with get from database
-    return this.firestore.doc<item>(`items/${itemID}`).valueChanges();
+    return this.firestore.doc<item>(`items/${itemID}`).valueChanges({idField: 'itemID'});
+  }
+
+  deleteItem(itemID: string){
+    this.firestore.doc<item>(`items/${itemID}`).delete().then(res=>{
+      console.log('item deleted! ' + itemID);
+      }).catch(err=> console.log(err)
+      );;
   }
 }
