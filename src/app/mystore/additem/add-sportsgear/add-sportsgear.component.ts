@@ -35,25 +35,16 @@ export class AddSportsgearComponent implements OnInit {
     
   ourForm = new FormGroup({
 
-//     title: new FormControl('title', Validators.required),
-//     weight: new FormControl('weight', Validators.required ),
-//     category: new FormControl('category', Validators.required),
+    title: new FormControl('title', Validators.required),
+    weight: new FormControl('weight', Validators.required),
+    category: new FormControl('category', Validators.required),
 
-//     description :new FormControl('description', Validators.required),
-//     price: new FormControl('price', Validators.required),
-//     sellerid: new FormControl('sellerid', Validators.required),
-//     picture:new FormControl('picture', Validators.required),
-//     shipping: new FormControl('shipping', Validators.required),
-
-    title: new FormControl('title'),
-    weight: new FormControl('weight'),
-    category: new FormControl('category'),
-
-    description :new FormControl('description'),
-    price: new FormControl('price'),
-    sellerid: new FormControl('sellerid'),
-    picture:new FormControl('picture'),
-    shipping: new FormControl('shipping'),
+    description :new FormControl('description', Validators.required),
+    price: new FormControl('price', Validators.required),
+    sellerid: new FormControl('sellerid', Validators.required),
+    picture:new FormControl('picture', Validators.required),
+    shipping: new FormControl('shipping', Validators.required),
+    itemID: new FormControl('itemID')
 
   });  
 
@@ -113,6 +104,7 @@ export class AddSportsgearComponent implements OnInit {
 
   insertItem(value: any){
     this.items = this.firebase.list('/items');
+
     if(value){
       this.items.push({
       title:  value['title'],
@@ -123,13 +115,16 @@ export class AddSportsgearComponent implements OnInit {
       sellerid: value['sellerid'],
       category: 'sportsgear',
       picture:value['picture'],
-      shipping: value['shipping']
+      shipping: value['shipping'],
+      itemID: this.newId()
     })
     };
     console.log("item succesfully added!")
   }
 
   resetForm(){
+
+    
     this.ourForm.reset();
     this.ourForm.setValue({
       title: '',
@@ -140,7 +135,8 @@ export class AddSportsgearComponent implements OnInit {
       sellerid: '',
       category: 'sportsgear',
       picture:'',
-      shipping: ''
+      shipping: '',
+      itemID: this.newId()
     });
     this.imgSrc= "../../../../assets/images/addphoto.png";
     this.selectedImage=null;
