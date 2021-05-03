@@ -12,19 +12,19 @@
         <div class="input">
             <label for="color">Color</label>&nbsp;
             <input type="text" id='color' formControlName="color">
-            <div class = "text-danger" *ngIf="isSubmitted && formControl.title.errors?.required">This field is required</div>
+            <div class = "text-danger" *ngIf="isSubmitted && formControl.color.errors?.required">This field is required</div>
         </div>
 
         <div class="input">
             <label for="weight">Weight (lb)</label>&nbsp;
             <input type="number" id='weight' formControlName="weight">
-            <div class = "text-danger" *ngIf="isSubmitted && formControl.title.errors?.required">This field is required</div>
+            <div class = "text-danger" *ngIf="isSubmitted && formControl.weight.errors?.required">This field is required</div>
         </div>
 
         <div class="input">
             <label for="dimension">dimension (ft)</label>&nbsp;
             <input type="string" id='dimension' formControlName="dimension">
-            <div class = "text-danger" *ngIf="isSubmitted && formControl.title.errors?.required">This field is required</div>
+            <div class = "text-danger" *ngIf="isSubmitted && formControl.dimension.errors?.required">This field is required</div>
         </div>
     </div>
     
@@ -34,19 +34,19 @@
         <div class="input">
             <label for="sellerid">Seller ID</label>&nbsp;
             <input type="text" id='sellerid' formControlName="sellerid">
-            <div class = "text-danger" *ngIf="isSubmitted && formControl.title.errors?.required">This field is required</div>
+            <div class = "text-danger" *ngIf="isSubmitted && formControl.sellerid.errors?.required">This field is required</div>
         </div>
     
         <div class="input">
             <label for="description">Description</label>&nbsp;
             <textarea type="text" id='description' formControlName="description"></textarea>
-            <div class = "text-danger" *ngIf="isSubmitted && formControl.title.errors?.required">This field is required</div>
+            <div class = "text-danger" *ngIf="isSubmitted && formControl.description.errors?.required">This field is required</div>
         </div>
 
         <div class="input">
             <label for="price">Price  $</label>&nbsp;
             <input type="number" id='price' formControlName="price">
-            <div class = "text-danger" *ngIf="isSubmitted && formControl.title.errors?.required">This field is required</div>
+            <div class = "text-danger" *ngIf="isSubmitted && formControl.price.errors?.required">This field is required</div>
         </div>
     
         <div class="input">
@@ -59,7 +59,7 @@
         <div class="input">
             <label for="shipping">Shipping</label>&nbsp;
             <input type="text" id='shipping' formControlName="shipping">&nbsp;
-            <div class = "text-danger" *ngIf="isSubmitted && formControl.title.errors?.required">This field is required</div>
+            <div class = "text-danger" *ngIf="isSubmitted && formControl.shipping.errors?.required">This field is required</div>
         </div>   
     </div> 
       <input type="submit" value="Submit">

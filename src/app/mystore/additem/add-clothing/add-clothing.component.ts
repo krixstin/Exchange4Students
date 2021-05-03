@@ -72,9 +72,9 @@ export class AddClothingComponent implements OnInit {
   onSubmit(value: any ){
         this.isSubmitted=true;
         // console.log("is submitted now true")
-        if(value){
+        if(this.ourForm.valid){
           //how to store image in firebase storage ${value.category}/
-          var filePath = `${this.selectedImage.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}` //avoid duplicate name by assigning time
+          var filePath = `${value.category}/${this.selectedImage.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}` //avoid duplicate name by assigning time
           console.log("file path: ", filePath)
           const fileRef = this.storage.ref(filePath);
           

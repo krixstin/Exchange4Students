@@ -49,7 +49,7 @@ export class AddBooksComponent implements OnInit {
     sellerid: new FormControl('sellerid', Validators.required),
     picture:new FormControl('picture', Validators.required),
     shipping: new FormControl('shipping', Validators.required),
-    itemID: new FormControl('itemID')
+    itemID: new FormControl('itemID', Validators.required)
   }); 
 
   ngOnInit(): void{
@@ -75,9 +75,10 @@ export class AddBooksComponent implements OnInit {
 onSubmit(value: any ){
         this.isSubmitted=true;
         // console.log("is submitted now true")
-        if(value){
+        if(this.ourForm.valid){
           //how to store image in firebase storage ${value.category}/
-          var filePath = `${this.selectedImage.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}` //avoid duplicate name by assigning time
+          var filePath = `${value.category}/${this.selectedImage.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}`; //avoid duplicate name by assigning time
+
           console.log("file path: ", filePath)
           const fileRef = this.storage.ref(filePath);
           
