@@ -25,7 +25,6 @@ export class BrBooksComponent implements OnInit {
     console.log(retrievedItems)
     for (const index in retrievedItems){
       var item:item = retrievedItems[index]
-        console.log(item)
         if (item.category !== this.category){
           removedItems.push(parseInt(index))
         }

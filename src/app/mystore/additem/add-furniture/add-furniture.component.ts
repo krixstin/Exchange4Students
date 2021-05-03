@@ -72,59 +72,52 @@ export class AddFurnitureComponent implements OnInit {
   }
   //formvalue? value
   onSubmit(value: any ){
-        this.isSubmitted=true;
-        // console.log("is submitted now true")
-        if(value){
-          //how to store image in firebase storage ${value.category}/
-          var filePath = `${this.selectedImage.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}` //avoid duplicate name by assigning time
-          console.log("file path: ", filePath)
-          const fileRef = this.storage.ref(filePath);
-          
-          this.storage.upload(filePath, this.selectedImage.name).snapshotChanges().pipe(
-            
-            finalize(()=>{
-              fileRef.getDownloadURL().subscribe((url)=>{
-                value['picture']=url;
-
-                console.log("value of picture now set to: ", value['picture'])
+          this.isSubmitted=true;
+          if(value){
+            //how to store image in firebase storage ${value.category}/
+            if(this.selectedImage!= null){
+              var filePath = `${this.selectedImage.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}` //avoid duplicate name by assigning time
+              const fileRef = this.storage.ref(filePath);
               
+              this.storage.upload(filePath, this.selectedImage.name).snapshotChanges().pipe(
+              
+                finalize(()=>{
+                  fileRef.getDownloadURL().subscribe((url)=>{
+                    value['picture']=url;
+
+                    console.log("value of picture now set to: ", value['picture'])
                 
-                this.insertItem(value);
-                this.resetForm();
-                console.log("Now, the form is RESET")
-              })
-            })
-          ).subscribe();
-        }
-      }
+                  
+                    this.insertItem(value);
+                    this.resetForm();
+                    console.log("Now, the form is RESET")
+                  })
+                })
+              ).subscribe();
+              }
+            else{
+              value['picture']=null;
+              this.insertItem(value);
+              this.resetForm();
+              console.log("Null image uploaded, form is RESET")
+              }
 
-  get formControl(){
-    return this.ourForm['controls']; //all the objects in formGroup
 
-  }
-  items!: AngularFireList<any>;
+            }
 
-  insertItem(value: any){
-    this.items = this.firebase.list('/items');
+          }
 
-    if(value){
-      this.items.push({
-      title:  value['title'],
-      color: value['color'],
-      weight: value['weight'],
-      dimension: value['dimension'],
+    get formControl(){
+      return this.ourForm['controls']; //all the objects in formGroup
 
-      description : value['description'] ,
-      price: value['price'],
-      sellerid: value['sellerid'],
-      category: 'furniture',
-      picture:value['picture'],
-      shipping: value['shipping'],
-      itemID: this.newId()
-    })
-    };
-    console.log("item succesfully added!")
-  }
+    }
+
+    insertItem(value: any){
+      this.firestore.collection('items').add(value).then(res=>{
+      console.log('item added!');
+      }).catch(err=> console.log(err)
+      );
+    }
 
   resetForm(){
 

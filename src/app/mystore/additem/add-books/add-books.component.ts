@@ -1,162 +1,156 @@
-import { ngModuleJitUrl } from '@angular/compiler';
-import { ViewEncapsulation } from '@angular/core';
-import { Component, Injectable, OnInit } from '@angular/core';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import {AutoId} from '@firebase/firestore/dist/rn/firestore/src/util/misc';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { finalize } from 'rxjs/operators';
-import { AngularFireStorage } from '@angular/fire/storage';
-import { ImageService } from '../shared/image.service';
-// import {AngularFireDatabase, FirebaseObjectObservable} from 'angularfire2/database';
+  import { ngModuleJitUrl } from '@angular/compiler';
+  import { ViewEncapsulation } from '@angular/core';
+  import { Component, Injectable, OnInit } from '@angular/core';
+  import { AngularFireModule } from '@angular/fire';
+  import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+  import {AutoId} from '@firebase/firestore/dist/rn/firestore/src/util/misc';
+  import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+  import { Router } from '@angular/router';
+  import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+  import { finalize } from 'rxjs/operators';
+  import { AngularFireStorage } from '@angular/fire/storage';
+  import { ImageService } from '../shared/image.service';
+  // import {AngularFireDatabase, FirebaseObjectObservable} from 'angularfire2/database';
 
 
-@Component({
-  selector: 'app-add-books',
-  templateUrl: './add-books.component.html',
-  styleUrls: ['./add-books.component.css'],
-  encapsulation: ViewEncapsulation.None
-})
-export class AddBooksComponent implements OnInit {
+  @Component({
+    selector: 'app-add-books',
+    templateUrl: './add-books.component.html',
+    styleUrls: ['./add-books.component.css'],
+    encapsulation: ViewEncapsulation.None
+  })
+  export class AddBooksComponent implements OnInit {
 
-  imgSrc!: string;
-  selectedImage: any ;
-  isSubmitted: boolean = false;
+    imgSrc!: string;
+    selectedImage: any ;
+    isSubmitted: boolean = false;
 
 
-  constructor(public router: Router,
-    private fb: FormBuilder, 
-    private firestore: AngularFirestore,
-    private storage: AngularFireStorage,
-    private service:ImageService,
+    constructor(public router: Router,
+      private fb: FormBuilder, 
+      private firestore: AngularFirestore,
+      private storage: AngularFireStorage,
+      private service:ImageService,
 
-    private firebase:AngularFireDatabase
-    ){}
+      private firebase:AngularFireDatabase
+      ){}
 
-    private submissionForm!: AngularFirestoreCollection<any[]>
-    
-  ourForm = new FormGroup({
+      private submissionForm!: AngularFirestoreCollection<any[]>
+      
+    ourForm = new FormGroup({
 
-    title: new FormControl('title', Validators.required),
-    edition: new FormControl('edition', Validators.required),
-    course: new FormControl('course', Validators.required),
-    category: new FormControl('category', Validators.required),
+      title: new FormControl('title', Validators.required),
+      edition: new FormControl('edition', Validators.required),
+      course: new FormControl('course', Validators.required),
+      category: new FormControl('category', Validators.required),
 
-    description :new FormControl('description', Validators.required),
-    price: new FormControl('price', Validators.required),
-    sellerid: new FormControl('sellerid', Validators.required),
-    picture:new FormControl('picture', Validators.required),
-    shipping: new FormControl('shipping', Validators.required),
-    itemID: new FormControl('itemID')
-  }); 
+      description :new FormControl('description', Validators.required),
+      price: new FormControl('price', Validators.required),
+      sellerid: new FormControl('sellerid', Validators.required),
+      picture:new FormControl('picture', Validators.required),
+      shipping: new FormControl('shipping', Validators.required),
+      itemID: new FormControl('itemID')
+    }); 
 
-  ngOnInit(): void{
-    this.resetForm();
-    console.log('You can start the form')
-  }
-
-  showPreview(event:any){
-    console.log(event)
-    if(event.target.files ){
-       
-      const reader = new FileReader();
-      reader.onload = (e: any)=> this.imgSrc= e.target.result;
-      reader.readAsDataURL(event.target.files[0]);
-      this.selectedImage = event.target.files[0];
-    }
-    else {
-      this.imgSrc= "../../../../assets/images/placeholder.png";
-      this.selectedImage= null;
+    ngOnInit(): void{
+      this.resetForm();
+      console.log('You can start the form')
     }
 
-  }
-onSubmit(value: any ){
-        this.isSubmitted=true;
-        // console.log("is submitted now true")
-        if(value){
-          //how to store image in firebase storage ${value.category}/
-          var filePath = `${this.selectedImage.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}` //avoid duplicate name by assigning time
-          console.log("file path: ", filePath)
-          const fileRef = this.storage.ref(filePath);
-          
-          this.storage.upload(filePath, this.selectedImage.name).snapshotChanges().pipe(
-            
-            finalize(()=>{
-              fileRef.getDownloadURL().subscribe((url)=>{
-                value['picture']=url;
-
-                console.log("value of picture now set to: ", value['picture'])
-              
-                
-                this.insertItem(value);
-                this.resetForm();
-                console.log("Now, the form is RESET")
-              })
-            })
-          ).subscribe();
-        }
+    showPreview(event:any){
+      console.log(event)
+      if(event.target.files ){
+         
+        const reader = new FileReader();
+        reader.onload = (e: any)=> this.imgSrc= e.target.result;
+        reader.readAsDataURL(event.target.files[0]);
+        this.selectedImage = event.target.files[0];
+      }
+      else {
+        this.imgSrc= "../../../../assets/images/placeholder.png";
+        this.selectedImage= null;
       }
 
-  get formControl(){
-    return this.ourForm['controls']; //all the objects in formGroup
-
-  }
-  items!: AngularFireList<any>;
-
-  insertItem(value: any){
-    this.items = this.firebase.list('/items');
-
-    if(value){
-      this.items.push({
-      title:  value['title'],
-      edition: value['edition'],
-      course: value['course'],
-
-      description : value['description'] ,
-      price: value['price'],
-      sellerid: value['sellerid'],
-      category: 'books',
-      picture:value['picture'],
-      shipping: value['shipping'],
-      itemID: this.newId()
-    })
-    };
-    console.log("item succesfully added!")
-  }
-
-  resetForm(){
-
-    this.ourForm.reset();
-    this.ourForm.setValue({
-      title: '',
-      edition: '',
-      course: '',
-
-      description : '' ,
-      price: '',
-      sellerid: '',
-      category: 'books',
-      picture:'',
-      shipping: '',
-      itemID: this.newId()
-    });
-    this.imgSrc= "../../../../assets/images/addphoto.png";
-    this.selectedImage=null;
-    this.isSubmitted=false;
-
-  }
-
-  newId(): string {
-    // Alphanumeric characters
-    const chars =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let autoId = '';
-    for (let i = 0; i < 20; i++) {
-      autoId += chars.charAt(Math.floor(Math.random() * chars.length));
     }
-    return autoId;
-  }
+  onSubmit(value: any ){
+          this.isSubmitted=true;
+          if(value){
+            //how to store image in firebase storage ${value.category}/
+            if(this.selectedImage!= null){
+              var filePath = `${this.selectedImage.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}` //avoid duplicate name by assigning time
+              const fileRef = this.storage.ref(filePath);
+              
+              this.storage.upload(filePath, this.selectedImage.name).snapshotChanges().pipe(
+              
+                finalize(()=>{
+                  fileRef.getDownloadURL().subscribe((url)=>{
+                    value['picture']=url;
 
-}
+                    console.log("value of picture now set to: ", value['picture'])
+                
+                  
+                    this.insertItem(value);
+                    this.resetForm();
+                    console.log("Now, the form is RESET")
+                  })
+                })
+              ).subscribe();
+              }
+            else{
+              value['picture']=null;
+              this.insertItem(value);
+              this.resetForm();
+              console.log("Null image uploaded, form is RESET")
+              }
+
+
+            }
+
+          }
+
+    get formControl(){
+      return this.ourForm['controls']; //all the objects in formGroup
+
+    }
+
+    insertItem(value: any){
+      this.firestore.collection('items').add(value).then(res=>{
+      console.log('item added!');
+      }).catch(err=> console.log(err)
+      );
+    }
+
+    resetForm(){
+
+      this.ourForm.reset();
+      this.ourForm.setValue({
+        title: '',
+        edition: '',
+        course: '',
+
+        description : '' ,
+        price: '',
+        sellerid: '',
+        category: 'books',
+        picture:'',
+        shipping: '',
+        itemID: this.newId()
+      });
+      this.imgSrc= "../../../../assets/images/addphoto.png";
+      this.selectedImage=null;
+      this.isSubmitted=false;
+
+    }
+
+    newId(): string {
+      // Alphanumeric characters
+      const chars =
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      let autoId = '';
+      for (let i = 0; i < 20; i++) {
+        autoId += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return autoId;
+    }
+
+  }
