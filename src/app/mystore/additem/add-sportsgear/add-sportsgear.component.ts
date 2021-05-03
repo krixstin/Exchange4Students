@@ -44,6 +44,7 @@ export class AddSportsgearComponent implements OnInit {
     sellerid: new FormControl('sellerid', Validators.required),
     picture:new FormControl('picture', Validators.required),
     shipping: new FormControl('shipping', Validators.required),
+    itemID: new FormControl('itemID')
 
   });  
 
@@ -114,7 +115,8 @@ export class AddSportsgearComponent implements OnInit {
       sellerid: value['sellerid'],
       category: 'sportsgear',
       picture:value['picture'],
-      shipping: value['shipping']
+      shipping: value['shipping'],
+      itemID: this.newId()
     })
     };
     console.log("item succesfully added!")
@@ -133,7 +135,8 @@ export class AddSportsgearComponent implements OnInit {
       sellerid: '',
       category: 'sportsgear',
       picture:'',
-      shipping: ''
+      shipping: '',
+      itemID: this.newId()
     });
     this.imgSrc= "../../../../assets/images/addphoto.png";
     this.selectedImage=null;

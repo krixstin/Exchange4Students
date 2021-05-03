@@ -49,7 +49,7 @@ export class AddBooksComponent implements OnInit {
     sellerid: new FormControl('sellerid', Validators.required),
     picture:new FormControl('picture', Validators.required),
     shipping: new FormControl('shipping', Validators.required),
-
+    itemID: new FormControl('itemID')
   }); 
 
   ngOnInit(): void{
@@ -139,7 +139,8 @@ onSubmit(value: any ){
       sellerid: '',
       category: 'books',
       picture:'',
-      shipping: ''
+      shipping: '',
+      itemID: this.newId()
     });
     this.imgSrc= "../../../../assets/images/addphoto.png";
     this.selectedImage=null;
