@@ -1,4 +1,4 @@
-<!-- <form [formGroup]="ourForm" (submit)="onSubmit(ourForm.value)" >
+<form [formGroup]="ourForm" (submit)="onSubmit(ourForm.value)" >
     <br>            
     <div class="inputs">
         <h1>YOUR BOOK</h1>
@@ -45,15 +45,17 @@
         </div>
     
         <div class="input">
-            <label for="picture">Picture</label>&nbsp;
-            <input type="file" id='picture' >
-            <div class = "text-danger" *ngIf="isSubmitted && formControl.title.errors?.required">This field is required</div>
+            <img class="placeholder" [src] = "imgSrc" width = "250 px" height = "150px" (click)="fileUploader.click()" > <br>
+             <label for="picture">Picture</label>&nbsp;
+            <input type="file" #fileUploader accept="image/*" formControlName="picture" id='picture' (change)="showPreview($event)">
+            <div class = "text-danger" *ngIf="isSubmitted && formControl.picture.errors?.required">This field is required</div>
         </div>   
     
         <div class="input">
             <label for="shipping">Shipping</label>&nbsp;
             <input type="text" id='shipping' formControlName="shipping">&nbsp;
+            <div class = "text-danger" *ngIf="isSubmitted && formControl.shipping.errors?.required">This field is required</div>
         </div>   
     </div> 
-      <input type="submit" value="Submit"  (click)="submitForm(ourForm.value)">
-</form> -->
+      <input type="submit" value="Submit"  >
+</form>
