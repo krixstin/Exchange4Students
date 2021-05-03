@@ -3,7 +3,8 @@ import { Observable, of,} from 'rxjs';
 import { map, find } from 'rxjs/operators';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-//import {AutoId} from '@firebase/firestore/dist/rn/firestore/src/util/misc';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { AngularFireStorage} from '@angular/fire/storage'
 
 import {item} from './Item';
 import {itemSport} from './ItemSport';
@@ -19,20 +20,26 @@ import { Mock } from './MockBook';
 })
 export class ItemService {
 
-  private storedDatabase: AngularFirestoreCollection<item>
+  private storedDatabase: AngularFireList<item>
   items$: Observable<item[]>
   private localStorage: item[]
   
-  constructor(private firestore: AngularFirestore){
-    this.storedDatabase = this.firestore.collection('items');
-    this.items$ = this.storedDatabase.valueChanges({idField: 'itemID'});
+  constructor(private firestore: AngularFirestore,
+          private db: AngularFireDatabase,
+    ){
+    this.storedDatabase = this.db.list('items');
+    this.items$ = this.storedDatabase.valueChanges();
     this.localStorage = [];
     this.items$.subscribe(items => this.localStorage = items)
+
+    var temp = this.db.list('items');
+
   }
 
   getItems(): Observable<item[]>{
     // Currently returns Mock Item list 
     // TODO: Implement get from database
+
     return this.items$
 
 //    const items = of(Mock)
