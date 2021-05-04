@@ -23,7 +23,7 @@ export class BrKeywordComponent implements OnInit {
   getKeywordItems(retrievedItems:item[]):void{
     var acceptedItems: number[] = [];
 
-    console.log(retrievedItems)
+//    console.log(retrievedItems)
     for (const index in retrievedItems){
       var item:item = retrievedItems[index]
 //        console.log(item)

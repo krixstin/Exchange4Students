@@ -27,7 +27,7 @@ export class BrSportsgearComponent implements OnInit {
 
     var removedItems: number[] = [];
 
-    console.log(retrievedItems)
+//    console.log(retrievedItems)
     for (const index in retrievedItems){
       var item:item = retrievedItems[index]
         if (item.category !== this.category){
@@ -42,7 +42,7 @@ export class BrSportsgearComponent implements OnInit {
       }
     }
 
-    console.log(this.items)
+//    console.log(this.items)
   }
  
   ngOnInit(): void {

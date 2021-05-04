@@ -22,14 +22,14 @@ export class BrBooksComponent implements OnInit {
 
     var removedItems: number[] = [];
 
-    console.log(retrievedItems)
+//    console.log(retrievedItems)
     for (const index in retrievedItems){
       var item:item = retrievedItems[index]
         if (item.category !== this.category){
           removedItems.push(parseInt(index))
         }
     }
-    console.log(removedItems)
+//    console.log(removedItems)
 
     this.items = [];
     for (const index in retrievedItems){
@@ -38,7 +38,7 @@ export class BrBooksComponent implements OnInit {
       }
     }
 
-    console.log(this.items)
+//    console.log(this.items)
   }
  
   ngOnInit(): void {

@@ -18,7 +18,7 @@ import {itemFurniture} from './ItemFurniture';
         price: 102,
         sellerid: 'Temp sllerid',
         category: 'books',
-        // picture: 'Temp',
+        picture: 'Temp',
         shipping: 'Temp shipping',
     }
     const mockBook2: itemBook = {
@@ -32,7 +32,7 @@ import {itemFurniture} from './ItemFurniture';
         price: 202,
         sellerid: 'Temp2 sellerid',
         category: 'books',
-        // picture: 'Temp2',
+        picture: 'Temp2',
         shipping: 'Temp2 shipping',
     }
     const mockBook3: itemBook = {
@@ -46,7 +46,7 @@ import {itemFurniture} from './ItemFurniture';
         price: 302,
         sellerid: 'Temp3 sellerid',
         category: 'books',
-        // picture: 'Temp2',
+        picture: 'Temp2',
         shipping: 'Temp3 shipping',
     }
     const mockBook4: itemBook = {
@@ -60,7 +60,7 @@ import {itemFurniture} from './ItemFurniture';
         price: 402,
         sellerid: 'Temp4 sellerid',
         category: 'books',
-        // picture: 'Temp2',
+        picture: 'Temp2',
         shipping: 'Temp4 shipping',
     }
     const mockBook5: itemBook = {
@@ -74,7 +74,7 @@ import {itemFurniture} from './ItemFurniture';
         price: 502,
         sellerid: 'Temp5 sellerid',
         category: 'books',
-        // picture: 'Temp2',
+        picture: 'Temp2',
         shipping: 'Temp5 shipping',
     }
     const mockSport: itemSport = {
@@ -84,6 +84,7 @@ import {itemFurniture} from './ItemFurniture';
         sellerid: 'Temp3 sellerid',
         category: 'sportsgear',
         shipping: 'Temp3 shipping',
+        picture: 'Temp2',
         title: 'Temp3 type',
         weight: 302
     }
@@ -94,6 +95,7 @@ import {itemFurniture} from './ItemFurniture';
         sellerid: 'Temp4 sellerid',
         category: 'electronics',
         shipping: 'Temp4 shipping',
+        picture: 'Temp2',
         title: 'Temp4 type',
         model: 'Temp4 model',
         
@@ -108,6 +110,7 @@ import {itemFurniture} from './ItemFurniture';
         title: 'Temp5 type',
         weight: 501,
         color: 'Temp5 color',
+        picture: 'Temp2',
         dimension: '5 dim',
 
     }
@@ -120,6 +123,7 @@ import {itemFurniture} from './ItemFurniture';
         shipping: 'Temp6 shipping',
         title: 'Temp6 type',
         size: 'Temp6 size',
+        picture: 'Temp2',
         color: 'Temp6 color'
     }
 

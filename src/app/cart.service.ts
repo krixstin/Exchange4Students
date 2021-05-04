@@ -26,6 +26,5 @@ export class CartService {
       this.itemService.deleteItem(this.items[i].itemID)
     }
     this.items = [];
-    return this.items;
   }
 }

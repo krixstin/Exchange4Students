@@ -3,7 +3,7 @@
 	<!-- ## NOTE: Pictures are not implemented yet, but please leave room in final design for them. ## -->
 	<div *ngIf='Item.category === "books"'> 
 	<div class="itemDisplay" *ngIf='Item.category === "books"'> 
-		<img src={{Item.picture}}>
+		<img *ngIf='Item.picture != ""' src="{{Item.picture}}" width="300px" height = "300px">
 		<p>Item: {{Item.title}}</p>
   		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
@@ -25,7 +25,7 @@
 	
 	<div *ngIf='Item.category === "sportsgear"'>
 	<div class="itemDisplay" *ngIf='Item.category === "sportsgear"'>
-		<!--<img scr="">-->
+		<img *ngIf='Item.picture != ""' src="{{Item.picture}}" width="300px" height = "300px">
 		<p>Item: {{Item.title}}</p>
 		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
@@ -48,7 +48,7 @@
 	<div *ngIf='Item.category === "electronics"'>
 
 	<div class="itemDisplay" *ngIf='Item.category === "electronics"'>
-		<!--<img scr="">-->
+		<img *ngIf='Item.picture != ""' src="{{Item.picture}}" width="300px" height = "300px">
 		<p>Item: {{Item.title}}</p>
 		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
@@ -71,7 +71,7 @@
 	<div *ngIf='Item.category === "furniture"'>
 
 	<div class="itemDisplay" *ngIf='Item.category === "furniture"'>
-		<!--<img scr="">-->
+		<img *ngIf='Item.picture != ""' src="{{Item.picture}}" width="300px" height = "300px">
 		<p>Item: {{Item.title}}</p>
 		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
@@ -95,7 +95,7 @@
 	<div *ngIf='Item.category === "clothing"'>
    
 	<div class="itemDisplay" *ngIf='Item.category === "clothing"'>
-		<!--<img scr="">-->
+		<img *ngIf='Item.picture != ""' src="{{Item.picture}}" width="300px" height = "300px">
 		<p>Item: {{Item.title}}</p>
 		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>

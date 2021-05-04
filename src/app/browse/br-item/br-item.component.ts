@@ -49,6 +49,7 @@ export class BrItemComponent implements OnInit {
 
 
   setCategory(Item: item):void  {
+
     if (Item.category == "books"){
       this.Item = Item as itemBook;
     }
@@ -64,6 +65,7 @@ export class BrItemComponent implements OnInit {
     if (Item.category == "furniture"){
       this.Item = Item as itemFurniture;
     }
+    console.log(Item)
   }
 
   // =------

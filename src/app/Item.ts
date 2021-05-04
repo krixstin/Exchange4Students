@@ -7,6 +7,6 @@ export interface item{
     price: number,
     sellerid: string,
     category: string,
-    // picture:new FormControl('picture'),
+    picture: string,
     shipping: string,
 }
