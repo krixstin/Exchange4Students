@@ -77,7 +77,7 @@
           if(value){
             //how to store image in firebase storage ${value.category}/
             if(this.selectedImage!= null){
-              var filePath = `${this.selectedImage.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}` //avoid duplicate name by assigning time
+              var filePath = `${value.category}/${this.selectedImage.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}` //avoid duplicate name by assigning time
               const fileRef = this.storage.ref(filePath);
               
               this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
@@ -97,7 +97,7 @@
               ).subscribe();
               }
             else{
-              value['picture']=null;
+              value['picture']="";
               this.insertItem(value);
               this.resetForm();
               console.log("Null image uploaded, form is RESET")
