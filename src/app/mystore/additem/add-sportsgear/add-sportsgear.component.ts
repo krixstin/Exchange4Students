@@ -77,7 +77,7 @@ export class AddSportsgearComponent implements OnInit {
               var filePath = `${this.selectedImage.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}` //avoid duplicate name by assigning time
               const fileRef = this.storage.ref(filePath);
               
-              this.storage.upload(filePath, this.selectedImage.name).snapshotChanges().pipe(
+              this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
               
                 finalize(()=>{
                   fileRef.getDownloadURL().subscribe((url)=>{
