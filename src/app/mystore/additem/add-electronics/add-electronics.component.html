@@ -11,7 +11,7 @@
 
         <div class="input">
             <label for="model">Model</label>&nbsp;
-            <input type="number" id='model' formControlName="model">
+            <input type="text" id='model' formControlName="model">
             <div class = "text-danger" *ngIf="isSubmitted && formControl.title.errors?.required">This field is required</div>
         </div> 
     </div>
