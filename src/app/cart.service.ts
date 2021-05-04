@@ -13,7 +13,14 @@ export class CartService {
   
   // add to cart button pressed
   addToCart(product: item) {
-    this.items.push(product);
+    console.log("adding to cart")
+    if (!this.items.includes(product)){
+      this.items.push(product);
+      window.alert('Your product has been added to the cart!');  
+    }
+    else{
+      window.alert('Error: Your product is already in the cart!');
+    }
   }
 
   getItems() {

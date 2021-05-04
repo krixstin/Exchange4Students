@@ -71,9 +71,7 @@ export class BrItemComponent implements OnInit {
   // =------
   
   addToCart(item: item) {
-    console.log("added to cart")
     this.cartService.addToCart(item);
-    window.alert('Your product has been added to the cart!');
   }
 
 
