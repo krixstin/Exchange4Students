@@ -42,7 +42,7 @@
 <div class="items">
 	<div class="oneItem" *ngFor = 'let item of items'>
 		<div class="colorBox" >
-			<img *ngIf='Item.picture != ""' src="{{Item.picture}}" height = "300px" width="200px">
+			<img *ngIf='item.picture != ""' src="{{item.picture}}" height = "200px" width="200px">
 				<a routerLink= "/br-item/{{item.itemID}}">
    				<span>{{item.itemID}}</span> {{item.description}}
    				</a>	
@@ -50,22 +50,4 @@
 	</div>
 </div>
 
-
-<p>br-furniture works!(temp|click to display item)</p>
-
-<h2>Temp listing of 'Furniture':</h2>
-<ul class="items">
-  <li *ngFor = 'let item of items'>
-   <a routerLink= "/br-item/{{item.itemID}}">
-   <span> {{item.itemid}}</span> {{item.description}}
-   </a>
-  </li>
-</ul>
-
 <!-- >>>>>>> main -->
-
-
-
-
-
-
