@@ -8,7 +8,9 @@ import { ItemService } from './item.service'
 export class CartService {
 
     items: any[] = [];
-
+    buyerEmail: string = "kristaa5463";
+    sellerEmail: string = "kristinhajinkim";
+  
   constructor(private itemService: ItemService) {}
   
   // add to cart button pressed
@@ -29,6 +31,7 @@ export class CartService {
 
   // purcahse items button
   clearCart() {
+    window.location.href = "mailto:"+this.sellerEmail+"@gmail.com?subject=Exchange4Student Purchase Confirmation&body=Please contact the seller to arrange purchase and shipment details.&cc="+this.buyerEmail+"@gmail.com";
     for (var i = 0; i < this.items.length; i++){
       this.itemService.deleteItem(this.items[i].itemID)
     }

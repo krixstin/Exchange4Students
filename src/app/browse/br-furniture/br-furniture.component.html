@@ -42,6 +42,7 @@
 
 <div class="items">
 	<div class="oneItem" *ngFor = 'let item of items'>
+
 		<div routerLink= "/br-item/{{item.itemID}}"class="colorBox" style="cursor: grab">
 			<div class="img"> 
 				<img *ngIf='item.picture != ""' src="{{item.picture}}" height = "250px" width="250px">
@@ -52,3 +53,15 @@
 		</div>
 	</div>
 </div>
+
+		<div class="colorBox" >
+			<img *ngIf='item.picture != ""' src="{{item.picture}}" height = "200px" width="200px">
+				<a routerLink= "/br-item/{{item.itemID}}">
+   				<span>{{item.itemID}}</span> {{item.description}}
+   				</a>	
+		</div>
+	</div>
+</div>
+
+<!-- >>>>>>> main -->
+
