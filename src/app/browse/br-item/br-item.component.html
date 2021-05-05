@@ -3,21 +3,24 @@
 	<!-- ## NOTE: Pictures are not implemented yet, but please leave room in final design for them. ## -->
 	<div *ngIf='Item.category === "books"'> 
 	<div class="itemDisplay" *ngIf='Item.category === "books"'> 
-		<img *ngIf='Item.picture != ""' src="{{Item.picture}}" width="300px" height = "300px">
+		<img *ngIf='Item.picture != ""' src="{{Item.picture}}" >
+		<div class= "thicker">
 		<p>Item: {{Item.title}}</p>
-  		<p>Description: {{Item.description}}</p>
-		<p>Price: {{Item.price}}</p>
+		</div>
+  		<p>Edition: {{Item.edition}}</p>
+		<p>Course: {{Item.course}}</p>
+		<p>Description: {{Item.description}}</p>
+		<p>Price: $ {{Item.price}}</p>
 		<p>Seller ID: {{Item.sellerid}}</p>
 		<p>Category: {{Item.category}}</p>
 		<p>Shipping: {{Item.shipping}}</p>
-		<p>Edition: {{Item.edition}}</p>
-		<p>Course: {{Item.course}}</p> 
+		 
 		<div class="column">
 			<div class="row">
-				<a href="mailto:gonelli2113@gmail.com" ><button style="cursor: grab;">Contact Seller</button></a>
+				<a href="mailto:gonelli2113@gmail.com"><button mat-stroked-button>Contact Seller</button></a>
 			</div>
 			<div class="row">
-				<button (click)="addToCart(Item)" style="cursor: grab">Add to Cart</button>
+				<button mat-stroked-button (click)="addToCart(Item)" style="cursor: grab">Add to Cart</button>
 			</div>
 		</div>
 	</div>
@@ -25,8 +28,10 @@
 	
 	<div *ngIf='Item.category === "sportsgear"'>
 	<div class="itemDisplay" *ngIf='Item.category === "sportsgear"'>
-		<img *ngIf='Item.picture != ""' src="{{Item.picture}}" width="300px" height = "300px">
-		<p>Item: {{Item.title}}</p>
+		<img *ngIf='Item.picture != ""' src="{{Item.picture}}" >
+		<div class= "thicker">
+			<p>Item: {{Item.title}}</p>
+		</div>
 		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
 		<p>Seller ID: {{Item.sellerid}}</p>
@@ -35,10 +40,10 @@
 		<p>Weight: {{Item.weight}}</p>
 		<div class="column">
 			<div class="row">
-				<a href="mailto:gonelli2113@gmail.com"><button>Contact Seller</button></a>
+				<a href="mailto:gonelli2113@gmail.com"><button mat-stroked-button>Contact Seller</button></a>
 			</div>
 			<div class="row">
-				<button (click)="addToCart(Item)" style="cursor: grab">Add to Cart</button>
+				<button mat-stroked-button (click)="addToCart(Item)" style="cursor: grab">Add to Cart</button>
 			</div>
 		</div>
 	</div>
@@ -48,8 +53,10 @@
 	<div *ngIf='Item.category === "electronics"'>
 
 	<div class="itemDisplay" *ngIf='Item.category === "electronics"'>
-		<img *ngIf='Item.picture != ""' src="{{Item.picture}}" width="300px" height = "300px">
-		<p>Item: {{Item.title}}</p>
+		<img *ngIf='Item.picture != ""' src="{{Item.picture}}">
+		<div class= "thicker">
+			<p>Item: {{Item.title}}</p>
+		</div>
 		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
 		<p>Seller ID: {{Item.sellerid}}</p>
@@ -58,10 +65,10 @@
 		<p>Model: {{Item.model}}</p>
 		<div class="column">
 			<div class="row">
-				<a href="mailto:gonelli2113@gmail.com"><button>Contact Seller</button></a>
+				<a href="mailto:gonelli2113@gmail.com"><button mat-stroked-button>Contact Seller</button></a>
 			</div>
 			<div class="row">
-				<button (click)="addToCart(Item)" style="cursor: grab">Add to Cart</button>
+				<button mat-stroked-button (click)="addToCart(Item)" style="cursor: grab">Add to Cart</button>
 			</div>
 		</div>
 	</div>
@@ -71,22 +78,24 @@
 	<div *ngIf='Item.category === "furniture"'>
 
 	<div class="itemDisplay" *ngIf='Item.category === "furniture"'>
-		<img *ngIf='Item.picture != ""' src="{{Item.picture}}" width="300px" height = "300px">
-		<p>Item: {{Item.title}}</p>
+		<img *ngIf='Item.picture != ""' src="{{Item.picture}}" >
+		<div class= "thicker">
+			<p>Item: {{Item.title}}</p>
+		</div>
 		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
-		<p>Seller ID: {{Item.sellerid}}</p>
-		<p>Category: {{Item.category}}</p>
-		<p>Shipping: {{Item.shipping}}</p>
 		<p>Color: {{Item.color}}</p>
 		<p>Weight: {{Item.weight}}</p>
 		<p>Dimensions: {{Item.dimension}}</p>
+		<p>Seller ID: {{Item.sellerid}}</p>
+		<p>Category: {{Item.category}}</p>
+		<p>Shipping: {{Item.shipping}}</p>
 		<div class="column">
 			<div class="row">
-				<a href="mailto:gonelli2113@gmail.com"><button>Contact Seller</button></a>
+				<a href="mailto:gonelli2113@gmail.com"><button mat-stroked-button>Contact Seller</button></a>
 			</div>
 			<div class="row">
-				<button (click)="addToCart(Item)" style="cursor: grab">Add to Cart</button>
+				<button mat-stroked-button (click)="addToCart(Item)" style="cursor: grab">Add to Cart</button>
 			</div>
 		</div>
 	</div>
@@ -95,21 +104,23 @@
 	<div *ngIf='Item.category === "clothing"'>
    
 	<div class="itemDisplay" *ngIf='Item.category === "clothing"'>
-		<img *ngIf='Item.picture != ""' src="{{Item.picture}}" width="300px" height = "300px">
-		<p>Item: {{Item.title}}</p>
+		<img *ngIf='Item.picture != ""' src="{{Item.picture}}" >
+		<div class= "thicker">
+			<p>Item: {{Item.title}}</p>
+		</div>
 		<p>Description: {{Item.description}}</p>
 		<p>Price: {{Item.price}}</p>
+		<p>Color: {{Item.color}}</p>
+		<p>Size: {{Item.size}}</p>
 		<p>Seller ID: {{Item.sellerid}}</p>
 		<p>Category: {{Item.category}}</p>
 		<p>Shipping: {{Item.shipping}}</p>
-		<p>Color: {{Item.color}}</p>
-		<p>Size: {{Item.size}}</p>
 		<div class="column">
 			<div class="row">
-				<a href="mailto:gonelli2113@gmail.com"><button>Contact Seller</button></a>
+				<a href="mailto:gonelli2113@gmail.com"><button mat-stroked-button>Contact Seller</button></a>
 			</div>
 			<div class="row">
-				<button (click)="addToCart(Item)" style="cursor: grab">Add to Cart</button>
+				<button mat-stroked-button (click)="addToCart(Item)" style="cursor: grab">Add to Cart</button>
 			</div>
 		</div>
 	</div>

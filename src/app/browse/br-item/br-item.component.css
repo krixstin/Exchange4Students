@@ -1,19 +1,31 @@
 .itemDisplay{
-	font-size: 30px;
+	font-size: 22px;
 	background-color: #e7e3e3;
 	margin-top: 5px;
-	padding-right: 90px;
+	padding-right: auto;
+	padding-left: auto;
 	border-style: solid;
-	border-color: darkred;
+	border-color: transparent;
+	border-radius: 8px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 }
 
 .column{
+	/* margin-left: 10%;
+	margin-right: 10%; */
 	display: flex;
+	justify-content: center;
 }
 
 .row{
-	flex:30%;
-	margin-left: 10%;
+	flex:33%;
+	display: inline-flex;
+	justify-content: center;
+	flex-direction: row;
+	
+	
 }
 
 button{
@@ -21,11 +33,32 @@ button{
 	background-color: darkred;
 	width: 200px;
 	height: 40px;
-	font-size: 20px;
-	margin-left: 0%;
+	font-size: 18px;
 	margin-bottom: 10%;
+	border-radius: 8px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 p{
-	padding: 10px 50px;
+	padding: 0.2px 1px;
+	font-size: 15px;
+	margin-left: 23%;
+	margin-right: 23%;
+	text-align: center;
 }
+.thicker{
+	font-weight: 900;
+}
+img{
+	justify-content: center;
+	display: inline-flex;
+	flex-direction: column;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5%;
+	border-radius: 15px;
+	width:200px;
+	height:200px;
+}
+

@@ -2,30 +2,43 @@
     <h2>Summary of your Cart</h2>
 </div>
 
-
+<div class = "cart">
 <div *ngFor="let Item of items">
 	<!-- Create a 'display' for each category arranged as necessary -->
 	<!-- ## NOTE: Pictures are not implemented yet, but please leave room in final design for them. ## -->
 	<div *ngIf='Item.category === "books"'> 
 	<div class="itemDisplay" *ngIf='Item.category === "books"'> 
-		<img src={{Item.picture}}>
-		<p>Price: {{Item.price}}</p>
-		<p>Seller ID: {{Item.sellerid}}</p>
-		<p>Category: {{Item.category}}</p>
-		<p>Shipping: {{Item.shipping}}</p>
+		
+		
+
+		<div class="row">
+			<div class="img">
+			<img src={{Item.picture}}>
+			</div>	
+			<p>
+				<strong>Title:</strong> {{Item.title}} <br>
+				<strong>Price: </strong>${{Item.price}}<br>
+				<strong>Seller ID:</strong> {{Item.sellerid}}<br>
+				<strong>Shipping:</strong> {{Item.shipping}}
+			<p>
+		</div>
+			
 	</div>
 	</div>
 	
 	<div *ngIf='Item.category === "sportsgear"'>
 	<div class="itemDisplay" *ngIf='Item.category === "sportsgear"'>
-		<!--<img scr="">-->
-		<p>Description: {{Item.description}}</p>
-		<p>Price: {{Item.price}}</p>
-		<p>Seller ID: {{Item.sellerid}}</p>
-		<p>Category: {{Item.category}}</p>
-		<p>Shipping: {{Item.shipping}}</p>
-		<p>Type: {{Item.type}}</p>
-		<p>Weight: {{Item.weight}}</p>
+		<div class="row">
+			<div class="img">
+			<img src={{Item.picture}}>
+			</div>	
+			<p>
+				<strong>Title:</strong> {{Item.title}} <br>
+				<strong>Price: </strong>${{Item.price}}<br>
+				<strong>Seller ID:</strong> {{Item.sellerid}}<br>
+				<strong>Shipping:</strong> {{Item.shipping}}
+			<p>
+		</div>
 	</div>
 	</div>
 	
@@ -33,15 +46,16 @@
 	<div *ngIf='Item.category === "electronics"'>
 
 	<div class="itemDisplay" *ngIf='Item.category === "electronics"'>
-		<!--<img scr="">-->
-		<p>Description: {{Item.description}}</p>
-		<p>Price: {{Item.price}}</p>
-		<p>Seller ID: {{Item.sellerid}}</p>
-		<p>Category: {{Item.category}}</p>
-		<p>Shipping: {{Item.shipping}}</p>
-		<p>Type: {{Item.type}}</p>
-		<p>Model: {{Item.model}}</p>
-		<div class="column">
+		<div class="row">
+			<div class="img">
+			<img src={{Item.picture}}>
+			</div>	
+			<p>
+				<strong>Title:</strong> {{Item.title}} <br>
+				<strong>Price: </strong>${{Item.price}}<br>
+				<strong>Seller ID:</strong> {{Item.sellerid}}<br>
+				<strong>Shipping:</strong> {{Item.shipping}}
+			<p>
 		</div>
 	</div>
 	</div>
@@ -50,16 +64,16 @@
 	<div *ngIf='Item.category === "furniture"'>
 
 	<div class="itemDisplay" *ngIf='Item.category === "furniture"'>
-		<!--<img scr="">-->
-		<p>Description: {{Item.description}}</p>
-		<p>Price: {{Item.price}}</p>
-		<p>Seller ID: {{Item.sellerid}}</p>
-		<p>Category: {{Item.category}}</p>
-		<p>Shipping: {{Item.shipping}}</p>
-		<p>Color: {{Item.color}}</p>
-		<p>Weight: {{Item.weight}}</p>
-		<p>Dimensions: {{Item.dimension}}</p>
-		<div class="column">
+		<div class="row">
+			<div class="img">
+			<img src={{Item.picture}}>
+			</div>	
+			<p>
+				<strong>Title:</strong> {{Item.title}} <br>
+				<strong>Price: </strong>${{Item.price}}<br>
+				<strong>Seller ID:</strong> {{Item.sellerid}}<br>
+				<strong>Shipping:</strong> {{Item.shipping}}
+			<p>
 		</div>
 	</div>
 	</div>
@@ -67,19 +81,20 @@
 	<div *ngIf='Item.category === "clothing"'>
    
 	<div class="itemDisplay" *ngIf='Item.category === "clothing"'>
-		<!--<img scr="">-->
-		<p>Description: {{Item.description}}</p>
-		<p>Price: {{Item.price}}</p>
-		<p>Seller ID: {{Item.sellerid}}</p>
-		<p>Category: {{Item.category}}</p>
-		<p>Shipping: {{Item.shipping}}</p>
-		<p>Type: {{Item.type}}</p>
-		<p>Color: {{Item.color}}</p>
-		<p>Size: {{Item.size}}</p>
-		<div class="column">
+		<div class="row">
+			<div class="img">
+			<img src={{Item.picture}}>
+			</div>	
+			<p>
+				<strong>Title:</strong> {{Item.title}} <br>
+				<strong>Price: </strong>${{Item.price}}<br>
+				<strong>Seller ID:</strong> {{Item.sellerid}}<br>
+				<strong>Shipping:</strong> {{Item.shipping}}
+			<p>
 		</div>
 	</div>
 	</div>
+</div>
 </div>
 
 <!-- <a routerLink="/cart" class="button fancy-button">
@@ -87,8 +102,12 @@
 </a> -->
 <br><br>
 
-<h1>Your Total: {{getTotal()}}</h1>
-<br><br>
+<div class = "total">
+<h2>Your Total: ${{getTotal()}}</h2>
+</div>
+<br>
 
-<button (click)="clearCart()" style="cursor: grab">Checkout</button>
+<div class = "checkout">
+<button mat-stroked-button (click)="clearCart()" style="cursor: grab">Checkout</button>
+</div>
 
