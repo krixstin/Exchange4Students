@@ -8,8 +8,8 @@ import { ItemService } from './item.service'
 export class CartService {
 
     items: any[] = [];
-    buyerEmail: string = "kristaa5463";
-    sellerEmail: string = "kristinhajinkim";
+    buyerEmail: string = "redroach51";
+    sellerEmail: string = "elim1";
   
   constructor(private itemService: ItemService) {}
   
