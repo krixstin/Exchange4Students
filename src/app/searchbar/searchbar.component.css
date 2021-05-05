@@ -1,0 +1,13 @@
+input {
+    padding:5px 15px; 
+    width: 150px;
+    margin-left: 10px;
+    background-color:#e7e3e3; 
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    border:0 none;
+    cursor:zoom-in;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    outline:none;
+}

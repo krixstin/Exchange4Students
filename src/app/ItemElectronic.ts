@@ -14,6 +14,5 @@ import {item} from './Item';
 */
 
 export interface itemElectronic extends item{
-    type: string,
     model: string,
 }

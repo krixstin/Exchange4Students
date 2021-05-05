@@ -7,6 +7,7 @@ import { BrFurnitureComponent } from './browse/br-furniture/br-furniture.compone
 import { BrSportsgearComponent } from './browse/br-sportsgear/br-sportsgear.component';
 import { BrowseComponent } from './browse/browse.component';
 import { BrItemComponent } from './browse/br-item/br-item.component';
+import { BrKeywordComponent } from './browse/br-keyword/br-keyword.component';
 
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
@@ -18,6 +19,7 @@ import { AddSportsgearComponent } from './mystore/additem/add-sportsgear/add-spo
 import { AddClothingComponent } from './mystore/additem/add-clothing/add-clothing.component';
 import { AddElectronicsComponent } from './mystore/additem/add-electronics/add-electronics.component';
 import { AddFurnitureComponent } from './mystore/additem/add-furniture/add-furniture.component';
+import { CartComponent } from './browse/cart/cart.component';
 
 const routes: Routes = [
 
@@ -31,18 +33,27 @@ const routes: Routes = [
   { path: 'br-furniture', component: BrFurnitureComponent },
   { path: 'br-electronics', component: BrElectronicsComponent },
   { path: 'br-sportsgear', component: BrSportsgearComponent },
+
+  { path: 'br-keyword/:keyword', component: BrKeywordComponent},
   
   { path: 'br-item/:itemid', component: BrItemComponent },
 
   { path: 'mystore', component: MystoreComponent },
   { path: 'additem', component: AdditemComponent },
+
+  { path: 'browse/cart', component: CartComponent },
   
+  { path: '', component: BrItemComponent },
+
+  { path: 'cart', component: CartComponent },
+
   { path: 'add-books', component: AddBooksComponent },
   { path: 'add-clothing', component: AddClothingComponent },
   { path: 'add-electronics', component: AddElectronicsComponent },
   { path: 'add-furniture', component: AddFurnitureComponent },
   { path: 'add-sportsgear', component: AddSportsgearComponent },
 
+  
   // otherwise redirect to home
   // { path: '**', redirectTo: '' }
 ];

@@ -14,7 +14,6 @@ import {item} from './Item';
 */
 
 export interface itemBook extends item{
-    booktitle: string,
     edition: number,
     course: string,
 }

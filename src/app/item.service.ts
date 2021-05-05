@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of} from 'rxjs';
+import { Observable, of,} from 'rxjs';
+import { map, find } from 'rxjs/operators';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 //import {AutoId} from '@firebase/firestore/dist/rn/firestore/src/util/misc';
@@ -20,26 +21,34 @@ export class ItemService {
 
   private storedDatabase: AngularFirestoreCollection<item>
   items$: Observable<item[]>
+  private localStorage: item[]
+  
   constructor(private firestore: AngularFirestore){
     this.storedDatabase = this.firestore.collection('items');
-    this.items$ = this.storedDatabase.valueChanges();
+    this.items$ = this.storedDatabase.valueChanges({idField: 'itemID'});
+    this.localStorage = [];
+    this.items$.subscribe(items => this.localStorage = items)
   }
 
   getItems(): Observable<item[]>{
-  	// Currently returns Mock Item list 
-  	// TODO: Implement get from database
-    this.storedDatabase.get().subscribe()
+    // Currently returns Mock Item list 
+    // TODO: Implement get from database
+    return this.items$
 
-    const items = of(Mock)
-//    AutoId.newId();
-//    return this.items$;
-  	return items;
+//    const items = of(Mock)
+//    return items;
   }
 
-  getItem(itemID: string): Observable<item>{
-  	// Currently reads from Mock Item list
-  	// TODO: Replace Mock with get from database
-  	const item = Mock.find(temp => temp.itemID === itemID) as item
-  	return of(item)
+  getItem(itemID: string): Observable<item|undefined>{
+    // Currently reads from Mock Item list
+    // TODO: Replace Mock with get from database
+    return this.firestore.doc<item>(`items/${itemID}`).valueChanges({idField: 'itemID'});
+  }
+
+  deleteItem(itemID: string){
+    this.firestore.doc<item>(`items/${itemID}`).delete().then(res=>{
+      console.log('item deleted! ' + itemID);
+      }).catch(err=> console.log(err)
+      );;
   }
 }

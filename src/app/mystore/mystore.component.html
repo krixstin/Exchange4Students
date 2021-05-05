@@ -5,11 +5,32 @@
         style="background-color: rgb(179, 64, 64);">
             add item
         </button>
+
+        <div class="items">
+                
+                <div class="oneItem" *ngFor = 'let item of items'>
+                    <div routerLink= "/br-item/{{item.itemID}}"class="colorBox" style="cursor: grab">
+                        <div class="img"> 
+                            <img *ngIf='item.picture != ""' src="{{item.picture}}" height = "150px" width="150px">
+                                <div class="iteminfo">
+                                    <span><strong>{{item.title}}</strong></span> <br> $ {{item.price}}
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </mat-tab>
 
-    <mat-tab label="Sold">list of all the items that has been shipped, delivered, pending request</mat-tab>
+    <mat-tab label="Sold">list of all the items that has been shipped, delivered, pending request
 
+        
+
+    </mat-tab>
+    
+    
+    
 </mat-tab-group>
+
 
 <div class="myitems">
     <!-- <br>
