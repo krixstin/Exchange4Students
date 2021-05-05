@@ -36,6 +36,15 @@ h6 {
   font-weight: 600;
 }
 
+.cart{
+  margin-left: 65%;
+  cursor: grab;
+}
+
+.cart:hover{
+  background-color: #802020;
+}
+
 
 .content {
   display: flex;

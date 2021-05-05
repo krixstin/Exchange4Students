@@ -23,7 +23,7 @@
 	            <p>Furniture</p>
 	        </div>
 
-	        <div class="container" (click) ="router.navigate(['./br-electronics']);">
+	        <div class="selected" (click) ="router.navigate(['./br-electronics']);">
 	            <p>Electronics</p>
 	        </div>
 
@@ -39,15 +39,18 @@
 </div>
 
 <br>
+
 <div class="items">
 	<div class="oneItem" *ngFor = 'let item of items'>
-		<div class="colorBox" >
-			<img *ngIf='item.picture != ""' src="{{item.picture}}" height = "200px" width="200px">
-				<a routerLink= "/br-item/{{item.itemID}}">
-   				<span>{{item.itemID}}</span> {{item.description}}
-   				</a>	
+		<div routerLink= "/br-item/{{item.itemID}}"class="colorBox" style="cursor: grab">
+			<div class="img"> 
+				<img *ngIf='item.picture != ""' src="{{item.picture}}" height = "250px" width="250px">
+					<div class="iteminfo">
+						<span><strong>{{item.title}}</strong></span> <br> $ {{item.price}}
+					</div>
+			</div>
 		</div>
 	</div>
 </div>
 
-<!-- >>>>>>> main -->
+
