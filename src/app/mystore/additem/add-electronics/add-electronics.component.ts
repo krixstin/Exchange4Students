@@ -70,12 +70,30 @@ export class AddElectronicsComponent implements OnInit {
   }
   //formvalue? value
   onSubmit(value: any ){
+
+        this.isSubmitted=true;
+        // console.log("is submitted now true")
+        if(this.ourForm.valid){
+          //how to store image in firebase storage ${value.category}/
+          var filePath = `${value.category}/${this.selectedImage.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}` //avoid duplicate name by assigning time
+          console.log("file path: ", filePath)
+          const fileRef = this.storage.ref(filePath);
+          
+          this.storage.upload(filePath, this.selectedImage.name).snapshotChanges().pipe(
+            
+            finalize(()=>{
+              fileRef.getDownloadURL().subscribe((url)=>{
+                value['picture']=url;
+
+                console.log("value of picture now set to: ", value['picture'])
+
           this.isSubmitted=true;
           if(value){
             //how to store image in firebase storage ${value.category}/
             if(this.selectedImage!= null){
               var filePath = `${value.category}/${this.selectedImage.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}` //avoid duplicate name by assigning time
               const fileRef = this.storage.ref(filePath);
+
               
               this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
               

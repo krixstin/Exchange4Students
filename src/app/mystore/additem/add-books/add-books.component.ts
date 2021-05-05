@@ -1,3 +1,96 @@
+
+import { ngModuleJitUrl } from '@angular/compiler';
+import { ViewEncapsulation } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import {AutoId} from '@firebase/firestore/dist/rn/firestore/src/util/misc';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { finalize } from 'rxjs/operators';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { ImageService } from '../shared/image.service';
+// import {AngularFireDatabase, FirebaseObjectObservable} from 'angularfire2/database';
+
+
+@Component({
+  selector: 'app-add-books',
+  templateUrl: './add-books.component.html',
+  styleUrls: ['./add-books.component.css'],
+  encapsulation: ViewEncapsulation.None
+})
+export class AddBooksComponent implements OnInit {
+
+  imgSrc!: string;
+  selectedImage: any ;
+  isSubmitted: boolean = false;
+
+
+  constructor(public router: Router,
+    private fb: FormBuilder, 
+    private firestore: AngularFirestore,
+    private storage: AngularFireStorage,
+    private service:ImageService,
+
+    private firebase:AngularFireDatabase
+    ){}
+
+    private submissionForm!: AngularFirestoreCollection<any[]>
+    
+  ourForm = new FormGroup({
+
+    title: new FormControl('title', Validators.required),
+    edition: new FormControl('edition', Validators.required),
+    course: new FormControl('course', Validators.required),
+    category: new FormControl('category', Validators.required),
+
+    description :new FormControl('description', Validators.required),
+    price: new FormControl('price', Validators.required),
+    sellerid: new FormControl('sellerid', Validators.required),
+    picture:new FormControl('picture', Validators.required),
+    shipping: new FormControl('shipping', Validators.required),
+    itemID: new FormControl('itemID', Validators.required)
+  }); 
+
+  ngOnInit(): void{
+    this.resetForm();
+    console.log('You can start the form')
+  }
+
+  showPreview(event:any){
+    console.log(event)
+    if(event.target.files ){
+       
+      const reader = new FileReader();
+      reader.onload = (e: any)=> this.imgSrc= e.target.result;
+      reader.readAsDataURL(event.target.files[0]);
+      this.selectedImage = event.target.files[0];
+    }
+    else {
+      this.imgSrc= "../../../../assets/images/placeholder.png";
+      this.selectedImage= null;
+    }
+
+  }
+onSubmit(value: any ){
+        this.isSubmitted=true;
+        // console.log("is submitted now true")
+        if(this.ourForm.valid){
+          //how to store image in firebase storage ${value.category}/
+          var filePath = `${value.category}/${this.selectedImage.name.split('.').slice(0,-1).join('.')}_${new Date().getTime()}`; //avoid duplicate name by assigning time
+
+          console.log("file path: ", filePath)
+          const fileRef = this.storage.ref(filePath);
+          
+          this.storage.upload(filePath, this.selectedImage.name).snapshotChanges().pipe(
+            
+            finalize(()=>{
+              fileRef.getDownloadURL().subscribe((url)=>{
+                value['picture']=url;
+
+                console.log("value of picture now set to: ", value['picture'])
+
   import { ngModuleJitUrl } from '@angular/compiler';
   import { ViewEncapsulation } from '@angular/core';
   import { Component, Injectable, OnInit } from '@angular/core';
@@ -81,6 +174,7 @@
               const fileRef = this.storage.ref(filePath);
               
               this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
+
               
                 finalize(()=>{
                   fileRef.getDownloadURL().subscribe((url)=>{
