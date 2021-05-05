@@ -31,7 +31,7 @@ export class CartService {
 
   // purcahse items button
   clearCart() {
-    window.location.href = "mailto:"+this.sellerEmail+"@gmail.com?subject=Exchange4Student Purchase Confirmation&body=Please contact the seller to arrange purchase and shipment details.&cc="+this.buyerEmail+"@gmail.com";
+    window.location.href = "mailto:"+this.sellerEmail+"@stevens.edu?subject=Exchange4Student Purchase Confirmation&body=Please contact the seller to arrange purchase and shipment details.&cc="+this.buyerEmail+"@stevens.edu";
     for (var i = 0; i < this.items.length; i++){
       this.itemService.deleteItem(this.items[i].itemID)
     }
